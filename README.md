@@ -128,3 +128,18 @@
 [Ethics, Technology and Engineering](https://www.coursera.org/learn/ethics-technology-engineering) | --- |
 [Intellectual Property Law in Digital Age](https://www.coursera.org/learn/intellectual-property-law-in-digital-age) | --- |
 [Data Privacy Fundamentals](https://www.coursera.org/learn/northeastern-data-privacy) | --- |
+
+# Advanced Computer Science
+## Advanced Math
+| Course | Status | Repository |
+-------- | ------ | ---------- |
+[Essence of Linear Algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab) | -- |
+[College Algebra and Problem Solving](https://www.edx.org/course/college-algebra-problem-solving-asux-mat117x) | -- |
+[Linear Algebra](https://ocw.mit.edu/courses/mathematics/18-06sc-linear-algebra-fall-2011/) | -- |
+[Introduction to Numerical Analysis](https://www.coursera.org/learn/intro-to-numerical-analysis) | -- |
+[Mathematical Thinking in Computer Science (Introduction to Discrete Mathematics)](https://www.coursera.org/learn/what-is-a-proof?specialization=discrete-mathematics) | --- |
+[Combinatorics and Probability (Introduction to Discrete Mathematics)](https://www.coursera.org/learn/combinatorics?specialization=discrete-mathematics) | --- |
+[Introduction to Graph Theory (Introduction to Discrete Mathematics)](https://www.coursera.org/learn/graphs?specialization=discrete-mathematics) | --- |
+[Number Theory and Cryptography (Introduction to Discrete Mathematics)](https://www.coursera.org/learn/number-theory-cryptography?specialization=discrete-mathematics) | --- |
+[Intro to Statistics](https://www.udacity.com/course/intro-to-statistics--st101) | --- |
+
