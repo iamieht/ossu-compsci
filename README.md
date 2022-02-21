@@ -83,3 +83,13 @@
 | Course | Status | Repository |
 -------- | ------ | ---------- |
 [Mathematics for Computer Science](https://openlearninglibrary.mit.edu/courses/course-v1:OCW+6.042J+2T2019/about) | --- |
+
+## Core Systems
+| Course | Status | Repository |
+-------- | ------ | ---------- |
+[Build a Modern Computer from First Principles: From Nand to Tetris](https://www.coursera.org/learn/build-a-computer) | --- |
+[Build a Modern Computer from First Principles: Nand to Tetris Part II](https://www.coursera.org/learn/nand2tetris2) | --- |
+[Introduction to Computer Networking](https://lagunita.stanford.edu/courses/Engineering/Networking-SP/SelfPaced/about) | --- |
+[Computer Networking: a Top-Down Approach](http://gaia.cs.umass.edu/kurose_ross/online_lectures.htm) | --- |
+[Introduction to Operating Systems](https://www.udacity.com/course/introduction-to-operating-systems--ud923) | --- |
+[Operating Systems: Three Easy Pieces](https://pages.cs.wisc.edu/~remzi/Classes/537/Spring2018/) | --- |
