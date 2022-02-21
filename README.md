@@ -166,3 +166,12 @@
 [Computation Structures 1: Digital Circuits](https://www.edx.org/course/computation-structures-part-1-digital-mitx-6-004-1x-0) | --- |
 [Computation Structures 2: Computer Architecture](https://www.edx.org/course/computation-structures-2-computer-mitx-6-004-2x) | --- |
 [Computation Structures 3: Computer Organization](https://www.edx.org/course/computation-structures-3-computer-mitx-6-004-3x-0) | --- |
+
+## Advanced Theory
+| Course | Status | Repository |
+-------- | ------ | ---------- |
+[Theory of Computation ](http://aduni.org/courses/theory/index.php?view=cw)[(Lectures)](https://www.youtube.com/playlist?list=PLTke5lHMAdSNmi57H0DOTzClHPK6UwSTN) | --- |
+[Automata Theory](https://lagunita.stanford.edu/courses/course-v1:ComputerScience+Automata+SelfPaced/about) | --- |
+[Computational Geometry](https://www.edx.org/course/computational-geometry-tsinghuax-70240183x) | --- |
+[Introduction to Formal Concept Analysis](https://www.coursera.org/learn/formal-concept-analysis) | --- |
+[Game Theory](https://www.coursera.org/learn/game-theory-1) | --- |
