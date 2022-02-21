@@ -46,3 +46,40 @@
 [Object-Oriented Design](https://www.coursera.org/learn/object-oriented-design) | --- |
 [Software Architecture](https://www.coursera.org/learn/software-architecture) | --- |
 [CS50’s Web Programming with Python and JavaScript](https://cs50.harvard.edu/web/2020/) | --- |
+
+## Core Math
+### Calculus
+| Course | Status | Repository |
+-------- | ------ | ---------- |
+[The Essence of Calculus [Source 1]](https://www.youtube.com/watch?v=WUvTyaaNkzM&list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr&t=4s) [Source 2](https://www.youtube.com/watch?v=HfACrKJ_Y2w&t=36975s) [Source 3](https://www.youtube.com/watch?v=7gigNsz4Oe8&list=WL&index=6&t=30s)| --- |
+[Calculus 1A: Differentiation](https://www.edx.org/course/calculus-1a-differentiation) | --- |
+[Calculus 1B: Integration](https://www.edx.org/course/calculus-1b-integration) | --- |
+[Calculus 1C: Coordinate Systems & Infinite Series](https://www.edx.org/course/calculus-1c-coordinate-systems-infinite-series) | --- | 
+
+### Linear Algebra
+| Course | Status | Repository |
+-------- | ------ | ---------- |
+[Essence of Linear Algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab) | --- |
+[Linear Algebra - Foundations to Frontiers](https://www.edx.org/course/linear-algebra-foundations-to-frontiers-0) | --- |
+
+### Set Theory
+| Course | Status | Repository |
+-------- | ------ | ---------- |
+[Set Theory](https://www.youtube.com/playlist?list=PL5KkMZvBpo5AH_5GpxMiryJT6Dkj32H6N) | --- |
+
+### Logic
+
+| Course | Status | Repository |
+-------- | ------ | ---------- |
+[Introduction to Logic](https://www.coursera.org/learn/logic-introduction) | --- |
+
+### Probability
+| Course | Status | Repository |
+-------- | ------ | ---------- |
+[Probability](https://www.edx.org/course/introduction-to-probability-0) | --- |
+[Introduction to Probability - The Science of Uncertainty](https://www.edx.org/course/introduction-probability-science-mitx-6-041x-2) | --- |
+
+### Discrete Mathematics
+| Course | Status | Repository |
+-------- | ------ | ---------- |
+[Mathematics for Computer Science](https://openlearninglibrary.mit.edu/courses/course-v1:OCW+6.042J+2T2019/about) | --- |
