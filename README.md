@@ -175,3 +175,10 @@
 [Computational Geometry](https://www.edx.org/course/computational-geometry-tsinghuax-70240183x) | --- |
 [Introduction to Formal Concept Analysis](https://www.coursera.org/learn/formal-concept-analysis) | --- |
 [Game Theory](https://www.coursera.org/learn/game-theory-1) | --- |
+
+## Advanced Security
+| Course | Status | Repository |
+-------- | ------ | ---------- |
+[Information Security: Context and Introduction](https://www.coursera.org/learn/information-security-data) | --- |
+[Principles of Secure Coding](https://www.coursera.org/learn/secure-coding-principles) | --- |
+[Identifying Security Vulnerabilities](https://www.coursera.org/learn/identifying-security-vulnerabilities) | --- |
