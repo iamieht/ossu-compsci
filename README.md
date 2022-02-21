@@ -115,3 +115,16 @@
 [Computer Graphics](https://www.edx.org/course/computer-graphics-uc-san-diegox-cse167x) | --- |
 [Software Engineering: Introduction](https://www.edx.org/course/software-engineering-introduction-ubcx-softeng1x) | --- |
 [Cryptography I](https://www.coursera.org/course/crypto) | --- |
+
+## Core Security, Tools & Ethics
+| Course | Status | Repository |
+-------- | ------ | ---------- |
+[The Missing Semester of Your CS Education](https://missing.csail.mit.edu/) | --- |
+[Information Security: Context and Introduction](https://www.coursera.org/learn/information-security-data) | --- |
+[Principles of Secure Coding](https://www.coursera.org/learn/secure-coding-principles) | --- |
+[Identifying Security Vulnerabilities](https://www.coursera.org/learn/identifying-security-vulnerabilities) | --- |
+[Identifying Security Vulnerabilities in C/C++Programming](https://www.coursera.org/learn/identifying-security-vulnerabilities-c-programming) | --- |
+[Exploiting and Securing Vulnerabilities in Java Applications](https://www.coursera.org/learn/exploiting-securing-vulnerabilities-java-applications) | --- |
+[Ethics, Technology and Engineering](https://www.coursera.org/learn/ethics-technology-engineering) | --- |
+[Intellectual Property Law in Digital Age](https://www.coursera.org/learn/intellectual-property-law-in-digital-age) | --- |
+[Data Privacy Fundamentals](https://www.coursera.org/learn/northeastern-data-privacy) | --- |
