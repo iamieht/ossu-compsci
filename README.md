@@ -143,3 +143,14 @@
 [Number Theory and Cryptography (Introduction to Discrete Mathematics)](https://www.coursera.org/learn/number-theory-cryptography?specialization=discrete-mathematics) | --- |
 [Intro to Statistics](https://www.udacity.com/course/intro-to-statistics--st101) | --- |
 
+## Advanced Programming
+| Course | Status | Repository |
+-------- | ------ | ---------- |
+[Parallel Programming](https://www.coursera.org/learn/parprog1) | --- |
+[Compilers](https://www.edx.org/course/compilers) | --- |
+[Introduction to Haskell](https://www.seas.upenn.edu/~cis194/fall16/) | --- |
+[Learn Prolog Now!](http://www.learnprolognow.org/lpnpage.php?pageid=online) | --- |
+[Software Debugging](https://www.udacity.com/course/software-debugging--cs259) | --- |
+[Software Testing](https://www.udacity.com/course/software-testing--cs258) | --- |
+[Software Architecture & Design](https://www.udacity.com/course/software-architecture-design--ud821) | --- |
+[LAFF - On Programming for Correctness](https://www.edx.org/course/laff-on-programming-for-correctness) | --- |
