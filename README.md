@@ -104,3 +104,14 @@
 [Graph Search, Shortest Paths, and Data Structures (Algorithms Specialization)](https://www.coursera.org/learn/algorithms-graphs-data-structures?specialization=algorithms) | --- |
 [Greedy Algorithms, Minimum Spanning Trees, and Dynamic Programming (Algorithms Specialization)](https://www.coursera.org/learn/algorithms-greedy?specialization=algorithms) | --- |
 [Shortest Paths Revisited, NP-Complete Problems and What To Do About Them ((Algorithms Specialization))](https://www.coursera.org/learn/algorithms-npcomplete?specialization=algorithms) | --- |
+
+## Core Applications
+| Course | Status | Repository |
+-------- | ------ | ---------- |
+[Relational Databases and SQL](https://www.edx.org/course/databases-5-sql) | --- |
+[Databases: Modeling and Theory](https://www.edx.org/course/modeling-and-theory) | --- |
+[Databases: Semistructured Data](https://www.edx.org/course/semistructured-data) | --- |
+[Machine Learning](https://www.coursera.org/learn/machine-learning) | --- |
+[Computer Graphics](https://www.edx.org/course/computer-graphics-uc-san-diegox-cse167x) | --- |
+[Software Engineering: Introduction](https://www.edx.org/course/software-engineering-introduction-ubcx-softeng1x) | --- |
+[Cryptography I](https://www.coursera.org/course/crypto) | --- |
