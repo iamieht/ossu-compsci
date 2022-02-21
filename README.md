@@ -93,3 +93,14 @@
 [Computer Networking: a Top-Down Approach](http://gaia.cs.umass.edu/kurose_ross/online_lectures.htm) | --- |
 [Introduction to Operating Systems](https://www.udacity.com/course/introduction-to-operating-systems--ud923) | --- |
 [Operating Systems: Three Easy Pieces](https://pages.cs.wisc.edu/~remzi/Classes/537/Spring2018/) | --- |
+
+## Core Theory
+
+| Course | Status | Repository |
+-------- | ------ | ---------- |
+[Algorithms](https://www.khanacademy.org/computing/computer-science/algorithms) | --- |
+[Computer Science: Algorithms, Theory, and Machines](https://www.coursera.org/learn/cs-algorithms-theory-machines) | --- |
+[Divide and Conquer, Sorting and Searching, and Randomized Algorithms (Algorithms Specialization)](https://www.coursera.org/learn/algorithms-divide-conquer?specialization=algorithms) | --- |
+[Graph Search, Shortest Paths, and Data Structures (Algorithms Specialization)](https://www.coursera.org/learn/algorithms-graphs-data-structures?specialization=algorithms) | --- |
+[Greedy Algorithms, Minimum Spanning Trees, and Dynamic Programming (Algorithms Specialization)](https://www.coursera.org/learn/algorithms-greedy?specialization=algorithms) | --- |
+[Shortest Paths Revisited, NP-Complete Problems and What To Do About Them ((Algorithms Specialization))](https://www.coursera.org/learn/algorithms-npcomplete?specialization=algorithms) | --- |
