@@ -13,10 +13,10 @@
 
 | Course | Status | Repository |
 -------- | ------ | ---------- |
-[Programming for Everybody (Python for Everybody - Course 1)](https://www.coursera.org/learn/python?specialization=python) | Not Started | 
-[Python Data Structures (Python for Everybody - Course 2)](https://www.coursera.org/learn/python-data?specialization=python) | Not Started | 
-[Using Python to Access Web Data (Python for Everybody - Course 3)](https://www.coursera.org/learn/python-network-data?specialization=python) | Not Started | 
-[Using Databases with Python (Python for Everybody - Course 4)](https://www.coursera.org/learn/python-databases?specialization=python) | Not Started | 
+[Programming for Everybody (Python for Everybody - Course 1)](https://www.coursera.org/learn/python?specialization=python) | Completed | [Repo](https://github.com/iamieht/ossu-compsci/tree/main/Intro_2_Programming/Python_for_Everybody/1.Programming-for-Everybody)
+[Python Data Structures (Python for Everybody - Course 2)](https://www.coursera.org/learn/python-data?specialization=python) | Completed | [Repo](https://github.com/iamieht/ossu-compsci/tree/main/Intro_2_Programming/Python_for_Everybody/2.Python-Data-Structures)
+[Using Python to Access Web Data (Python for Everybody - Course 3)](https://www.coursera.org/learn/python-network-data?specialization=python) | Completed | [Repo](https://github.com/iamieht/ossu-compsci/tree/main/Intro_2_Programming/Python_for_Everybody/3.Using-Python-to-Access-Web-Data)
+[Using Databases with Python (Python for Everybody - Course 4)](https://www.coursera.org/learn/python-databases?specialization=python) | Completed | [Repo](https://github.com/iamieht/ossu-compsci/tree/main/Intro_2_Programming/Python_for_Everybody/4.Using-Databases-with-Python)
 
 ## Introduction to Computer Science
 | Course | Status | Repository |
@@ -181,4 +181,4 @@
 -------- | ------ | ---------- |
 [Information Security: Context and Introduction](https://www.coursera.org/learn/information-security-data) | --- |
 [Principles of Secure Coding](https://www.coursera.org/learn/secure-coding-principles) | --- |
-[Identifying Security Vulnerabilities](https://www.coursera.org/learn/identifying-security-vulnerabilities) | --- |
+[Identifying Security Vulnerabilities](https://www.coursera.org/learn/identifying-security-vulnerabilities) | --- |Completed
