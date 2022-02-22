@@ -7,7 +7,7 @@
 -------- | ------ |
  [High School Math Review](https://www.khanacademy.org/math/high-school-math) | --- |
  [How to Learn Math: For Students](https://www.edx.org/course/how-to-learn-math-for-students-2) | --- | 
- [Learning How to Learn](https://www.coursera.org/learn/learning-how-to-learn) | --- |
+ [Learning How to Learn](https://www.coursera.org/learn/learning-how-to-learn) | Completed |
 
 ## Introduction to Programming
 
