@@ -21,10 +21,10 @@
 
 ## Introduction to Computer Science
 
-| Course                                                                                                                                                                                | Status      | Repository |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---------- |
+| Course                                                                                                                                                                                | Status      | Repository                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | --------------------------------------------------------------------------------------------- |
 | [Crash Course Computer Science](https://www.youtube.com/playlist?list=PLH2l6uzC4UEW0s7-KewFLBC1D0l6XRfye)                                                                             | Completed   |
-| [Introduction to Computer Science and Programming using Python](https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x-10)                                             | In Progress |
+| [Introduction to Computer Science and Programming using Python](https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x-10)                                             | In Progress | [Repo](https://github.com/iamieht/ossu-compsci/tree/main/Intro_2_ComputerScience/MITx6.00.1x) |
 | [An Introduction to Interactive Programming in Python (Part 1) (Fundamentals of Computing)](https://www.coursera.org/learn/interactive-python-1?specialization=computer-fundamentals) | ---         |
 | [An Introduction to Interactive Programming in Python (Part 2) (Fundamentals of Computing)](https://www.coursera.org/learn/interactive-python-2?specialization=computer-fundamentals) | ---         |
 | [Principles of Computing (Part 1) (Fundamentals of Computing)](https://www.coursera.org/learn/principles-of-computing-1?specialization=computer-fundamentals)                         | ---         |
