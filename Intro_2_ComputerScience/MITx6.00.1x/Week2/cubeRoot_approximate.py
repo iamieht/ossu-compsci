@@ -4,7 +4,7 @@ guess = 0.0
 increment = 0.0001
 num_guesses = 0
 
-while abs(guess**3 - cube) >= epsilon:
+while abs(guess**3 - cube) >= epsilon and guess <= cube:
     guess += increment
     num_guesses += 1
 
