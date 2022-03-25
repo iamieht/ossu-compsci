@@ -8,6 +8,7 @@
 # (so be sure to read the docstrings!)
 
 import random
+import string
 
 WORDLIST_FILENAME = "words.txt"
 
@@ -83,7 +84,13 @@ def getAvailableLetters(lettersGuessed):
     returns: string, comprised of letters that represents what letters have not
       yet been guessed.
     '''
-    # FILL IN YOUR CODE HERE...
+    availableLetters = ''
+
+    for letter in string.ascii_lowercase:
+      if letter not in lettersGuessed:
+        availableLetters += letter
+    
+    return availableLetters
     
 
 def hangman(secretWord):
@@ -129,9 +136,17 @@ def hangman(secretWord):
 # print(isWordGuessed('mangosteen', ['z', 'x', 'q', 'm', 'a', 'n', 'g', 'o', 's', 't', 'e', 'e', 'n'])) #True
 
 # Test Cases getGuessedWord(secretWord, lettersGuessed)
-print(getGuessedWord('apple', ['e', 'i', 'k', 'p', 'r', 's'])) #' _ pp _ e'
-print(getGuessedWord('durian', ['a', 'c', 'd', 'h', 'i', 'm', 'n', 'r', 't', 'u'])) #'durian'
-print(getGuessedWord('banana', ['l', 'v', 'q', 'x', 'o', 'n', 'd', 'h', 'w', 'm'])) #' _  _ n _ n _ '
-print(getGuessedWord('mangosteen', ['d', 'c', 'f', 'i', 'z', 'o', 'p', 'u', 's', 'r'])) #' _  _  _  _ os _  _  _  _ '
-print(getGuessedWord('mangosteen', [])) #' _  _  _  _  _  _  _  _  _  _ '
-print(getGuessedWord('coconut', ['y', 'e', 'l', 'b', 'q', 'f', 's', 't', 'n', 'o'])) #' _ o _ on _ t'
+# print(getGuessedWord('apple', ['e', 'i', 'k', 'p', 'r', 's'])) #' _ pp _ e'
+# print(getGuessedWord('durian', ['a', 'c', 'd', 'h', 'i', 'm', 'n', 'r', 't', 'u'])) #'durian'
+# print(getGuessedWord('banana', ['l', 'v', 'q', 'x', 'o', 'n', 'd', 'h', 'w', 'm'])) #' _  _ n _ n _ '
+# print(getGuessedWord('mangosteen', ['d', 'c', 'f', 'i', 'z', 'o', 'p', 'u', 's', 'r'])) #' _  _  _  _ os _  _  _  _ '
+# print(getGuessedWord('mangosteen', [])) #' _  _  _  _  _  _  _  _  _  _ '
+# print(getGuessedWord('coconut', ['y', 'e', 'l', 'b', 'q', 'f', 's', 't', 'n', 'o'])) #' _ o _ on _ t'
+
+# Test Cases getAvailableLetters(lettersGuessed)
+print(getAvailableLetters(['e', 'i', 'k', 'p', 'r', 's'])) #abcdfghjlmnoqtuvwxyz
+print(getAvailableLetters([])) #'abcdefghijklmnopqrstuvwxyz'
+print(getAvailableLetters(['s', 'm', 'u', 'k', 'x', 'd', 't', 'o', 'p', 'i', 'v'])) #'abcefghjlnqrwyz'
+print(getAvailableLetters(['o', 'j', 'w'])) #'abcdefghiklmnpqrstuvxyz'
+print(getAvailableLetters(['c', 'v', 'g', 'i', 'e'])) #'abdfhjklmnopqrstuwxyz'
+print(getAvailableLetters(['v', 't', 'i', 'a', 'q', 'k', 'o', 'x', 'c', 'n', 'm', 'j'])) #'bdefghlprsuwyz'
