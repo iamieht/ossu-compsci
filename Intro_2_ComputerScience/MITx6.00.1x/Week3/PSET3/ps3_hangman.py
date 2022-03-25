@@ -113,7 +113,40 @@ def hangman(secretWord):
 
     Follows the other limitations detailed in the problem write-up.
     '''
-    # FILL IN YOUR CODE HERE...
+    print("Welcome to the game, Hangman!")
+    print("I am thinking of a word that is " + str(len(secretWord)) + " letters long.")
+    print("-------------")
+    guessesLeft = 8
+    lettersGuessed = []
+    
+    while True:
+      print("You have " + str(guessesLeft) + " guesses left.")
+      print("Available letters:", getAvailableLetters(lettersGuessed))
+      letter = input("Please guess a letter:")
+
+      if letter in lettersGuessed:
+        print("Oops! You've already guessed that letter:", getGuessedWord(secretWord, lettersGuessed))
+        print("-------------")
+      
+      elif letter in secretWord:
+        lettersGuessed += letter
+        print("Good guess:", getGuessedWord(secretWord, lettersGuessed))
+        print("-------------")
+
+        if isWordGuessed(secretWord, lettersGuessed):
+          print("Congratulations, you won!")
+          break
+
+      else:
+        print("Oops! That letter is not in my word:", getGuessedWord(secretWord, lettersGuessed))
+        print("-------------")
+        lettersGuessed += letter
+        guessesLeft -= 1
+        
+        if guessesLeft == 0:
+          print("Sorry, you ran out of guesses. The word was", secretWord)
+          break
+
 
 
 
@@ -124,8 +157,8 @@ def hangman(secretWord):
 # and run this file to test! (hint: you might want to pick your own
 # secretWord while you're testing)
 
-# secretWord = chooseWord(wordlist).lower()
-# hangman(secretWord)
+secretWord = chooseWord(wordlist).lower()
+hangman(secretWord)
 
 # Test Cases isWordGuessed(secretWord, lettersGuessed)
 # print(isWordGuessed('apple', ['e', 'i', 'k', 'p', 'r', 's'])) #False
@@ -144,9 +177,9 @@ def hangman(secretWord):
 # print(getGuessedWord('coconut', ['y', 'e', 'l', 'b', 'q', 'f', 's', 't', 'n', 'o'])) #' _ o _ on _ t'
 
 # Test Cases getAvailableLetters(lettersGuessed)
-print(getAvailableLetters(['e', 'i', 'k', 'p', 'r', 's'])) #abcdfghjlmnoqtuvwxyz
-print(getAvailableLetters([])) #'abcdefghijklmnopqrstuvwxyz'
-print(getAvailableLetters(['s', 'm', 'u', 'k', 'x', 'd', 't', 'o', 'p', 'i', 'v'])) #'abcefghjlnqrwyz'
-print(getAvailableLetters(['o', 'j', 'w'])) #'abcdefghiklmnpqrstuvxyz'
-print(getAvailableLetters(['c', 'v', 'g', 'i', 'e'])) #'abdfhjklmnopqrstuwxyz'
-print(getAvailableLetters(['v', 't', 'i', 'a', 'q', 'k', 'o', 'x', 'c', 'n', 'm', 'j'])) #'bdefghlprsuwyz'
+# print(getAvailableLetters(['e', 'i', 'k', 'p', 'r', 's'])) #abcdfghjlmnoqtuvwxyz
+# print(getAvailableLetters([])) #'abcdefghijklmnopqrstuvwxyz'
+# print(getAvailableLetters(['s', 'm', 'u', 'k', 'x', 'd', 't', 'o', 'p', 'i', 'v'])) #'abcefghjlnqrwyz'
+# print(getAvailableLetters(['o', 'j', 'w'])) #'abcdefghiklmnpqrstuvxyz'
+# print(getAvailableLetters(['c', 'v', 'g', 'i', 'e'])) #'abdfhjklmnopqrstuwxyz'
+# print(getAvailableLetters(['v', 't', 'i', 'a', 'q', 'k', 'o', 'x', 'c', 'n', 'm', 'j'])) #'bdefghlprsuwyz'
