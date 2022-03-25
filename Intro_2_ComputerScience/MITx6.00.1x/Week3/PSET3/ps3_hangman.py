@@ -65,7 +65,15 @@ def getGuessedWord(secretWord, lettersGuessed):
     returns: string, comprised of letters and underscores that represents
       what letters in secretWord have been guessed so far.
     '''
-    # FILL IN YOUR CODE HERE...
+    guessedLetters = ''
+
+    for letter in secretWord:
+      if letter in lettersGuessed:
+        guessedLetters += letter
+      else:
+        guessedLetters += '_ '
+    
+    return guessedLetters
 
 
 
@@ -113,9 +121,17 @@ def hangman(secretWord):
 # hangman(secretWord)
 
 # Test Cases isWordGuessed(secretWord, lettersGuessed)
-print(isWordGuessed('apple', ['e', 'i', 'k', 'p', 'r', 's'])) #False
-print(isWordGuessed('durian', ['h', 'a', 'c', 'd', 'i', 'm', 'n', 'r', 't', 'u'])) #True
-print(isWordGuessed('coconut', ['v', 'b', 's', 'q', 'i', 'a', 'e', 'g', 'w', 'r'])) #False
-print(isWordGuessed('broccoli', ['v', 't', 'a', 'q', 'o', 'w', 'f', 'z', 's', 'c'])) #False
-print(isWordGuessed('lettuce', [])) #False
-print(isWordGuessed('mangosteen', ['z', 'x', 'q', 'm', 'a', 'n', 'g', 'o', 's', 't', 'e', 'e', 'n'])) #True
+# print(isWordGuessed('apple', ['e', 'i', 'k', 'p', 'r', 's'])) #False
+# print(isWordGuessed('durian', ['h', 'a', 'c', 'd', 'i', 'm', 'n', 'r', 't', 'u'])) #True
+# print(isWordGuessed('coconut', ['v', 'b', 's', 'q', 'i', 'a', 'e', 'g', 'w', 'r'])) #False
+# print(isWordGuessed('broccoli', ['v', 't', 'a', 'q', 'o', 'w', 'f', 'z', 's', 'c'])) #False
+# print(isWordGuessed('lettuce', [])) #False
+# print(isWordGuessed('mangosteen', ['z', 'x', 'q', 'm', 'a', 'n', 'g', 'o', 's', 't', 'e', 'e', 'n'])) #True
+
+# Test Cases getGuessedWord(secretWord, lettersGuessed)
+print(getGuessedWord('apple', ['e', 'i', 'k', 'p', 'r', 's'])) #' _ pp _ e'
+print(getGuessedWord('durian', ['a', 'c', 'd', 'h', 'i', 'm', 'n', 'r', 't', 'u'])) #'durian'
+print(getGuessedWord('banana', ['l', 'v', 'q', 'x', 'o', 'n', 'd', 'h', 'w', 'm'])) #' _  _ n _ n _ '
+print(getGuessedWord('mangosteen', ['d', 'c', 'f', 'i', 'z', 'o', 'p', 'u', 's', 'r'])) #' _  _  _  _ os _  _  _  _ '
+print(getGuessedWord('mangosteen', [])) #' _  _  _  _  _  _  _  _  _  _ '
+print(getGuessedWord('coconut', ['y', 'e', 'l', 'b', 'q', 'f', 's', 't', 'n', 'o'])) #' _ o _ on _ t'
