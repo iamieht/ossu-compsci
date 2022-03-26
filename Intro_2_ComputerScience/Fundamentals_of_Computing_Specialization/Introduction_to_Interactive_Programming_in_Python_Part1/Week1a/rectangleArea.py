@@ -3,7 +3,7 @@
 ###################################################
 # Rectangle area formula
 # Student should enter function on the next lines.
-def rectangle_area(width, hight):
+def rectangle_area(width, height):
     return width * height
 
 
