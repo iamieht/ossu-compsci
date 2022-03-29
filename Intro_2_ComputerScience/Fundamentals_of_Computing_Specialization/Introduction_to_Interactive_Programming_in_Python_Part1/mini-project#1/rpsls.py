@@ -110,3 +110,4 @@ rpsls("scissors")
 #print number_to_name(5)
 
 
+#CodeSkulptor link: https://py2.codeskulptor.org/#user49_uJvFIJL3NZ_0.py
