@@ -8,32 +8,33 @@ import math
 #Global Variables
 num_range = 100
 remaining_guesses = 7
-total_guesses = 7
+total_guess = 7
 # helper function to start and restart the game
 def new_game():
     '''
     Generates a new game
     '''
-    global secret_number
+    global secret_number, remaining_guesses, total_guess
+    remaining_guesses = total_guess
     secret_number = random.randrange(0, num_range)
     print "New game. Range is from 0 to", num_range
-    print "Number of remaining guesses is", total_guesses
+    print "Number of remaining guesses is", total_guess
     print
 
 
 # define event handlers for control panel
 def range100():
     # button that changes the range to [0,100) and starts a new game 
-    global num_range
+    global num_range, total_guess
     num_range = 100
-    remaining_guesses = 7
+    total_guess = 7
     new_game()
 
 def range1000():
     # button that changes the range to [0,1000) and starts a new game     
-    global num_range
+    global num_range, total_guess
     num_range = 1000
-    remaining_guesses = 10
+    total_guess = 10
     new_game()
     
     
@@ -43,28 +44,36 @@ def input_guess(guess):
     guess: string
     check if guess == secret_number
     '''
-    global total_guesses
+    global remaining_guesses
     guess = int(guess)
-    total_guesses -= 1
+    remaining_guesses -= 1
     
-    
-    if total_guesses < remaining_guesses and total_guesses >= 0:
-        print "Guess was", int(guess)
+    print "Guess was", int(guess)
+    if remaining_guesses > 0:        
         if guess == secret_number:
+            print "Number of remaining guesses is", remaining_guesses
             print "Correct"
             print
+            new_game()
         elif guess > secret_number:
-            print "Number of remaining guesses is", total_guesses
+            print "Number of remaining guesses is", remaining_guesses
             print "Lower!"
             print
-        else:
-            print "Number of remaining guesses is", total_guesses
+        elif guess < secret_number:
+            print "Number of remaining guesses is", remaining_guesses
             print "Higher!"
             print
-    else:
-        print "You ran out of guesses. The number was", secret_number
-        print
-        new_game()
+    elif remaining_guesses == 0:
+        if guess == secret_number:
+            print "Number of remaining guesses is", remaining_guesses
+            print "Correct!!!"
+            print
+            new_game()
+        else:
+            print "Number of remaining guesses is", remaining_guesses
+            print "You ran out of guesses. The number was", secret_number
+            print
+            new_game()
 
     
 # create frame
