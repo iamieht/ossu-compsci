@@ -6,7 +6,7 @@ time = 0
 # define helper function format that converts time
 # in tenths of seconds into formatted string A:BC.D
 def format(t):
-    a = (t // 600) % 10
+    a = (t // 600)
     b = (t // 100) % 6
     c = (t % 100) // 10
     d = (t % 100) % 10    
@@ -30,7 +30,7 @@ def tick():
 
 # define draw handler
 def draw(canvas):
-    canvas.draw_text(format(time), [300/2, 300/2], 36, "White")
+    canvas.draw_text(format(time), [60, 160], 72, "White")
     
 # create frame
 frame = simplegui.create_frame("Stopwatch: The Game", 300, 300)
