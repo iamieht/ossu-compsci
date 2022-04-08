@@ -13,7 +13,10 @@ HALF_PAD_WIDTH = PAD_WIDTH / 2
 HALF_PAD_HEIGHT = PAD_HEIGHT / 2
 LEFT = False
 RIGHT = True
-
+paddle1_pos = (HEIGHT / 2)
+paddle2_pos = (HEIGHT / 2)
+paddle1_vel = 0
+paddle2_vel = 0
 
 
 # initialize ball_pos and ball_vel for new bal in middle of table
@@ -57,8 +60,15 @@ def draw(canvas):
     canvas.draw_circle(ball_pos, BALL_RADIUS, 5, "White", "White")
     
     # update paddle's vertical position, keep paddle on the screen
+    if paddle1_pos + paddle1_vel >= HALF_PAD_HEIGHT and paddle1_pos + paddle1_vel <= HEIGHT - HALF_PAD_HEIGHT:
+        paddle1_pos += paddle1_vel
+         
+    if paddle2_pos + paddle2_vel >= HALF_PAD_HEIGHT and paddle2_pos + paddle2_vel <= HEIGHT - HALF_PAD_HEIGHT:
+        paddle2_pos += paddle2_vel
     
     # draw paddles
+    canvas.draw_line([HALF_PAD_WIDTH, paddle1_pos - HALF_PAD_HEIGHT], [HALF_PAD_WIDTH, paddle1_pos + HALF_PAD_HEIGHT], PAD_WIDTH, 'White')
+    canvas.draw_line([WIDTH - HALF_PAD_WIDTH, paddle2_pos - HALF_PAD_HEIGHT], [WIDTH - HALF_PAD_WIDTH, paddle2_pos + HALF_PAD_HEIGHT], PAD_WIDTH, 'White')
     
     # determine whether paddle and ball collide    
     
@@ -66,9 +76,29 @@ def draw(canvas):
         
 def keydown(key):
     global paddle1_vel, paddle2_vel
+    acc = 3
+    if key == simplegui.KEY_MAP["w"]:
+        paddle1_vel -= acc
+    elif key == simplegui.KEY_MAP["s"]:
+        paddle1_vel += acc
+        
+    if key == simplegui.KEY_MAP["up"]:
+        paddle2_vel -= acc
+    elif key == simplegui.KEY_MAP["down"]:
+        paddle2_vel += acc
    
 def keyup(key):
     global paddle1_vel, paddle2_vel
+    acc = 3
+    if key == simplegui.KEY_MAP["w"]:
+        paddle1_vel += acc
+    elif key == simplegui.KEY_MAP["s"]:
+        paddle1_vel -= acc
+        
+    if key == simplegui.KEY_MAP["up"]:
+        paddle2_vel += acc
+    elif key == simplegui.KEY_MAP["down"]:
+        paddle2_vel -= acc
 
 
 # create frame
@@ -86,4 +116,6 @@ frame.start()
 
 
 
-# CodeSkulptor link: https://py2.codeskulptor.org/#user49_wtjEL5u4uo_2.py
+
+
+# CodeSkulptor link: https://py2.codeskulptor.org/#user49_wtjEL5u4uo_3.py
