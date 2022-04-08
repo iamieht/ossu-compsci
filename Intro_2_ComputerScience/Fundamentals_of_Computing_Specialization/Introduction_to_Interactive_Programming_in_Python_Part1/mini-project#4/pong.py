@@ -13,24 +13,30 @@ HALF_PAD_WIDTH = PAD_WIDTH / 2
 HALF_PAD_HEIGHT = PAD_HEIGHT / 2
 LEFT = False
 RIGHT = True
-ball_pos = [WIDTH//2, HEIGHT//2]
-ball_vel = [1,0]
+
+
 
 # initialize ball_pos and ball_vel for new bal in middle of table
 # if direction is RIGHT, the ball's velocity is upper right, else upper left
 def spawn_ball(direction):
     global ball_pos, ball_vel # these are vectors stored as lists
-
+    ball_pos = [WIDTH//2, HEIGHT//2]
+    
+    if direction == RIGHT:
+        ball_vel = [1,-5]
+    else:
+        ball_vel = [-5, -5]
 
 # define event handlers
 def new_game():
     global paddle1_pos, paddle2_pos, paddle1_vel, paddle2_vel  # these are numbers
     global score1, score2  # these are ints
+    spawn_ball(RIGHT)
 
 def draw(canvas):
     global score1, score2, paddle1_pos, paddle2_pos, ball_pos, ball_vel
     
-        
+    print ball_pos    
     # draw mid line and gutters
     canvas.draw_line([WIDTH / 2, 0],[WIDTH / 2, HEIGHT], 1, "White")
     canvas.draw_line([PAD_WIDTH, 0],[PAD_WIDTH, HEIGHT], 1, "White")
@@ -39,6 +45,11 @@ def draw(canvas):
     # update ball
     ball_pos[0] = ball_pos[0] + ball_vel[0]
     ball_pos[1] = ball_pos[1] + ball_vel[1]
+    
+    if ball_pos[1] < BALL_RADIUS:
+        ball_vel[1] = - ball_vel[1]
+    elif ball_pos[1] > HEIGHT - BALL_RADIUS:
+        ball_vel[1] = - ball_vel[1]
             
     # draw ball
     canvas.draw_circle(ball_pos, BALL_RADIUS, 5, "White", "White")
@@ -69,3 +80,6 @@ frame.set_keyup_handler(keyup)
 new_game()
 frame.start()
 
+
+
+# CodeSkulptor link: https://py2.codeskulptor.org/#user49_wtjEL5u4uo_0.py
