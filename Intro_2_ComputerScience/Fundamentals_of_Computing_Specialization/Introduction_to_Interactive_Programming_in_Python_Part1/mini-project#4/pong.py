@@ -17,6 +17,8 @@ paddle1_pos = (HEIGHT / 2)
 paddle2_pos = (HEIGHT / 2)
 paddle1_vel = 0
 paddle2_vel = 0
+score1 = 0
+score2 = 0
 
 
 # initialize ball_pos and ball_vel for new bal in middle of table
@@ -34,7 +36,9 @@ def spawn_ball(direction):
 def new_game():
     global paddle1_pos, paddle2_pos, paddle1_vel, paddle2_vel  # these are numbers
     global score1, score2  # these are ints
-    spawn_ball(LEFT)
+    score1 = 0
+    score2 = 0
+    spawn_ball(RIGHT)
 
 def draw(canvas):
     global score1, score2, paddle1_pos, paddle2_pos, ball_pos, ball_vel
@@ -56,12 +60,20 @@ def draw(canvas):
     elif ball_pos[0] < BALL_RADIUS + PAD_WIDTH:
         if paddle1_pos - HALF_PAD_HEIGHT <= ball_pos[1] and ball_pos[1] <= paddle1_pos + HALF_PAD_HEIGHT:
             ball_vel[0] = - ball_vel[0]
+            # Increase ball speed by 10%
+            ball_vel[0] += ball_vel[0] * 0.10
+            ball_vel[1] += ball_vel[1] * 0.10
         else:
+            score2 += 1
             spawn_ball(RIGHT)
     elif ball_pos[0] > WIDTH - PAD_WIDTH - BALL_RADIUS:
         if paddle2_pos - HALF_PAD_HEIGHT <= ball_pos[1] and ball_pos[1] <= paddle2_pos + HALF_PAD_HEIGHT:
             ball_vel[0] = -ball_vel[0]
+            # Increase ball speed by 10%
+            ball_vel[0] += ball_vel[0] * 0.10
+            ball_vel[1] += ball_vel[1] * 0.10
         else:
+            score1 += 1
             spawn_ball(LEFT)
             
     # draw ball
@@ -77,10 +89,11 @@ def draw(canvas):
     # draw paddles
     canvas.draw_line([HALF_PAD_WIDTH, paddle1_pos - HALF_PAD_HEIGHT], [HALF_PAD_WIDTH, paddle1_pos + HALF_PAD_HEIGHT], PAD_WIDTH, 'White')
     canvas.draw_line([WIDTH - HALF_PAD_WIDTH, paddle2_pos - HALF_PAD_HEIGHT], [WIDTH - HALF_PAD_WIDTH, paddle2_pos + HALF_PAD_HEIGHT], PAD_WIDTH, 'White')
-    
-    # determine whether paddle and ball collide    
+   
     
     # draw scores
+    canvas.draw_text(str(score1),[150,50],40,"White", 'sans-serif');
+    canvas.draw_text(str(score2),[450,50],40,"White", 'sans-serif');
         
 def keydown(key):
     global paddle1_vel, paddle2_vel
@@ -119,6 +132,8 @@ frame.set_keyup_handler(keyup)
 # start frame
 new_game()
 frame.start()
+
+
 
 
 
