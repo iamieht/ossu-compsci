@@ -39,7 +39,9 @@ def new_game():
 def draw(canvas):
     global score1, score2, paddle1_pos, paddle2_pos, ball_pos, ball_vel
     
-    print ball_pos, ball_vel    
+    print 'ball_pos',ball_pos
+    print 'paddle1_pos', paddle1_pos - HALF_PAD_HEIGHT
+    print 'paddle1_pos', paddle1_pos + HALF_PAD_HEIGHT 
     # draw mid line and gutters
     canvas.draw_line([WIDTH / 2, 0],[WIDTH / 2, HEIGHT], 1, "White")
     canvas.draw_line([PAD_WIDTH, 0],[PAD_WIDTH, HEIGHT], 1, "White")
@@ -52,9 +54,15 @@ def draw(canvas):
     if ball_pos[1] < BALL_RADIUS or ball_pos[1] > HEIGHT - BALL_RADIUS:
         ball_vel[1] = - ball_vel[1]
     elif ball_pos[0] < BALL_RADIUS + PAD_WIDTH:
-        spawn_ball(RIGHT)
+        if paddle1_pos - HALF_PAD_HEIGHT <= ball_pos[1] and ball_pos[1] <= paddle1_pos + HALF_PAD_HEIGHT:
+            ball_vel[0] = - ball_vel[0]
+        else:
+            spawn_ball(RIGHT)
     elif ball_pos[0] > WIDTH - PAD_WIDTH - BALL_RADIUS:
-        spawn_ball(LEFT)
+        if paddle2_pos - HALF_PAD_HEIGHT <= ball_pos[1] and ball_pos[1] <= paddle2_pos + HALF_PAD_HEIGHT:
+            ball_vel[0] = -ball_vel[0]
+        else:
+            spawn_ball(LEFT)
             
     # draw ball
     canvas.draw_circle(ball_pos, BALL_RADIUS, 5, "White", "White")
@@ -111,6 +119,8 @@ frame.set_keyup_handler(keyup)
 # start frame
 new_game()
 frame.start()
+
+
 
 
 
