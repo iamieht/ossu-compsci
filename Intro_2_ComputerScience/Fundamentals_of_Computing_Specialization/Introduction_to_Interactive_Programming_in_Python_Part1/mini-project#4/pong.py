@@ -1,3 +1,8 @@
+# Implementation of classic arcade game Pong
+
+import simplegui
+import random
+
 # initialize globals - pos and vel encode vertical info for paddles
 WIDTH = 600
 HEIGHT = 400       
@@ -43,8 +48,10 @@ def draw(canvas):
     
     if ball_pos[1] < BALL_RADIUS or ball_pos[1] > HEIGHT - BALL_RADIUS:
         ball_vel[1] = - ball_vel[1]
-#    elif ball_pos[1] > HEIGHT - BALL_RADIUS:
-#        ball_vel[1] = - ball_vel[1]
+    elif ball_pos[0] < BALL_RADIUS + PAD_WIDTH:
+        spawn_ball(RIGHT)
+    elif ball_pos[0] > WIDTH - PAD_WIDTH - BALL_RADIUS:
+        spawn_ball(LEFT)
             
     # draw ball
     canvas.draw_circle(ball_pos, BALL_RADIUS, 5, "White", "White")
@@ -77,4 +84,6 @@ frame.start()
 
 
 
-# CodeSkulptor link: https://py2.codeskulptor.org/#user49_wtjEL5u4uo_1.py
+
+
+# CodeSkulptor link: https://py2.codeskulptor.org/#user49_wtjEL5u4uo_2.py
