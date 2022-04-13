@@ -27,9 +27,35 @@ class Cat(Animal):
     def __str__(self):
         return 'cat:' + str(self.name) + ':' + str(self.age)
 
-class Rabit(Animal):
+class Rabbit(Animal):
+    tag = 1
+    def __init__(self, age, parent1=None, parent2=None):
+        Animal.__init__(self, age)
+        self.parent1 = parent1
+        self.parent2 = parent2
+        self.rid = Rabbit.tag
+        Rabbit.tag += 1
+
+    def get_rid(self):
+        return str(self.rid).zfill(3)
+
+    def get_parent1(self):
+        return self.parent1
+
+    def get_parent2(self):
+        return self.parent2
+
     def speak(self):
         print('meep')
+
+    def __add__(self, other):
+        return Rabbit(0, self, other)
+
+    def __eq__(self, other):
+        parents_same = self.parent1.rid == other.parent1.rid and self.parent2.rid == other.parent2.rid
+        parents_opposite = self.parent2.rid == other.parent1.rid and self.parent1.rid == other.parent2.rid
+
+        return parents_same or parents_opposite
 
     def __str__(self):
         return 'rabbit:' + str(self.name) + ':' + str(self.age)
