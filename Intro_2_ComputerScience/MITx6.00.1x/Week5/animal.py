@@ -1,3 +1,5 @@
+import random
+
 class Animal(object):
     def __init__(self, age):
         self.age = age
@@ -57,3 +59,25 @@ class Person(Animal):
 
     def __str__(self):
         return 'person:' + str(self.name) + ':' + str(self.age)
+
+class Studen(Person):
+    def __init__(self, name, age, major=None):
+        Person.__init__(self, name, age)
+        self.major = major
+
+    def change_major(self, major):
+        self.major = major
+
+    def speak(self):
+        r = random.random()
+        if r < 0.25:
+            print('I have homework')
+        elif 0.25 <= r < 0.5:
+            print('I need sleep')
+        elif 0.5 <= r < 0.75:
+            print('I should eat')
+        else:
+            print('I am watching tv')
+
+    def __str__(self):
+        return 'student:' + str(self.name) + ':' + str(self.age) + ':' + str(self.major)
