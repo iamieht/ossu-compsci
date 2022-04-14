@@ -37,3 +37,11 @@ class Grades(object):
             return self.grades[student.getIdNum()][:]
         except KeyError:
             raise ValueError('Student not in grade book')
+
+    def allStudents(self):
+        '''Return a list of the students in the grade book'''
+        if not self.isSorted:
+            self.students.sort()
+            self.isSorted = True
+        return self.students[:]
+        # return copy of list of students
