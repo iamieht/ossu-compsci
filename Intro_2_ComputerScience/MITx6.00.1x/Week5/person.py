@@ -32,7 +32,6 @@ class Person(object):
         '''return self's name'''
         return self.name
 
-
 class MITPerson(Person):
     nextIdNum = 0
 
@@ -50,3 +49,27 @@ class MITPerson(Person):
 
     def speak(self, utterance):
         return (self.getLastName() + ' says: ' + utterance)
+
+class Student(MITPerson):
+    pass
+
+class UG(Student):
+    def __init__(self, name, classYear):
+        MITPerson.__init__(self, name)
+        self.year = classYear
+
+    def getClass(self):
+        return self.year
+
+    def speak(self, utterance):
+        return MITPerson.speak(self, ' Dude, ' + utterance)
+
+
+class Grad(Student):
+    pass
+
+class TransferStudent(Student):
+    pass
+
+def isStudent(obj):
+    return isinstance(obj, Student)
