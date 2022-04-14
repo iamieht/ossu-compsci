@@ -1,5 +1,7 @@
 from multiprocessing.sharedctypes import Value
 
+from numpy import average
+
 
 class Grades(object):
     '''A mapping from students to a list of grades'''
@@ -45,3 +47,22 @@ class Grades(object):
             self.isSorted = True
         return self.students[:]
         # return copy of list of students
+
+
+def gradeReport(course):
+    '''Assumes: course is of type grades'''
+    report = []
+    for s in course.allStudents():
+        tot = 0.0
+        numGrades = 0
+        for g in course.getGrades(s):
+            tot += g
+            numGrades += 1
+
+        try:
+            average = tot/numGrades
+            report.append(str(s) + '\'s mean grade is ' + str(average))
+        except ZeroDivisionError:
+            report.append(str(s) + ' has no grades')
+
+        return '\n'.join(report)
