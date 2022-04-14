@@ -21,6 +21,13 @@ class Person(object):
         '''sets self's birthday to birthDate'''
         self.birthday = datetime.date(year,month,day)
 
+    def __lt__(self, other):
+        '''return True if self's name is lexicographically
+            less than other's name, and False otherwise'''
+        if self.lastName == other.lastName:
+            return self.name < other.name
+        return self.lastName < other.lastName
+    
     def __str__(self):
         '''return self's name'''
         return self.name
