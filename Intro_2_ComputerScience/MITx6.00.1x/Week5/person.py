@@ -31,3 +31,22 @@ class Person(object):
     def __str__(self):
         '''return self's name'''
         return self.name
+
+
+class MITPerson(Person):
+    nextIdNum = 0
+
+    def __init__(self, name):
+        Person.__init__(self, name)
+        self.idNum = MITPerson.nextIdNum
+        MITPerson.nextIdNum += 1
+
+    def getIdNum(self):
+        return self.idNum
+
+    # sorting MIT people uses their ID number, not name!
+    def __lt__(self, other):
+        return self.idNum < other.idNum
+
+    def speak(self, utterance):
+        return (self.getLastName() + ' says: ' + utterance)
