@@ -9,15 +9,17 @@ card_deck = list(range(0,8)) + list(range(0,8))
 
 # helper function to initialize globals
 def new_game():
-    global card_deck, state, card_deck_exposed
+    global card_deck, state, card_deck_exposed, turns
     card_deck_exposed = 16*[False]
     random.shuffle(card_deck)
     state = 0
+    turns = 0
+    label.set_text("Turns = " + str(turns))
 
      
 # define event handlers
 def mouseclick(pos):
-    global state, card1_idx, card2_idx
+    global state, card1_idx, card2_idx, turns
     idx = pos[0] // 50
     
     if state == 0:
@@ -29,6 +31,8 @@ def mouseclick(pos):
             card_deck_exposed[idx] = True
             card2_idx = idx
             state = 2
+            turns += 1
+            label.set_text("Turns = " + str(turns))
     else:
         if not card_deck_exposed[idx]:
             card_deck_exposed[idx] = True
@@ -72,4 +76,6 @@ frame.start()
 
 
 
-# CodeSkulptor: https://py2.codeskulptor.org/#user49_Gzo0xsOhp7_0.py
+
+
+# CodeSkulptor: https://py2.codeskulptor.org/#user49_R5ft0B2oe1H1iy9.py
