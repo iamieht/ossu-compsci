@@ -3,6 +3,8 @@
 import simplegui
 import random
 
+card_deck = list(range(0,8)) + list(range(0,8))
+
 # helper function to initialize globals
 def new_game():
     pass  
@@ -16,7 +18,8 @@ def mouseclick(pos):
                         
 # cards are logically 50x100 pixels in size    
 def draw(canvas):
-    pass
+    for idx in range(len(card_deck)):
+        canvas.draw_text(str(card_deck[idx]), (idx*50+25, 60), 36, "White")
 
 
 # create frame and add a button and labels
@@ -32,5 +35,4 @@ frame.set_draw_handler(draw)
 new_game()
 frame.start()
 
-
-# Always remember to review the grading rubric
+# CodeSkulptor: https://py2.codeskulptor.org/#user49_Gzo0xsOhp7_0.py
