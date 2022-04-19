@@ -105,15 +105,15 @@ class Message(object):
         lowercase = string.ascii_lowercase
         uppercase = string.ascii_uppercase
 
-        map_letters = {}
+        self.shift_dict = {}
 
         for idx in range(len(lowercase)):
-            map_letters[lowercase[idx]] = lowercase[(idx+shift)% 26]
+            self.shift_dict[lowercase[idx]] = lowercase[(idx+shift)% 26]
 
         for idx in range(len(uppercase)):
-            map_letters[uppercase[idx]] = uppercase[(idx+shift)% 26]
+            self.shift_dict[uppercase[idx]] = uppercase[(idx+shift)% 26]
         
-        return map_letters
+        return self.shift_dict
 
 
 
@@ -130,7 +130,14 @@ class Message(object):
         Returns: the message text (string) in which every character is shifted
              down the alphabet by the input shift
         '''
-        pass #delete this line and replace with your code here
+        map_letters = self.build_shift_dict(shift)
+        ciphertext = ''
+        
+        for letter in self.message_text:
+            ciphertext += map_letters[letter]
+
+        return ciphertext
+
 
 class PlaintextMessage(Message):
     def __init__(self, text, shift):
@@ -234,3 +241,8 @@ class CiphertextMessage(Message):
 #Test Case build_shift_dict (Message)
 text = Message('Hello')
 print(text.build_shift_dict(3))
+
+# Test Case apply_shift
+print(text.apply_shift(0))
+text = Message('we are taking 6.00.1x')
+print(text.apply_shift(15))
