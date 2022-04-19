@@ -1,30 +1,33 @@
-# Create an instance of a Tile object 
+# Define an initializer for the Tile class, create a Tile object
 
-# definition of empty Tile class (use pass in the body)
-class Tile:
-    
-    pass
-    
-    
+
 #################################################
 # Student adds code where appropriate    
-my_tile = Tile()
-your_tile = Tile()
+
+# definition of a Tile class
+class Tile:
     
+    def __init__(self, num):
+        self.number = num
+
+    
+# create two tiles with numbers 3 and 4   
+my_tile = Tile(3)
+your_tile = Tile(4)
+
     
 ###################################################
-# Testing code 
+# Testing code
 
 print my_tile
-print type(my_tile)
+print my_tile.number
 print your_tile
-print type(your_tile)
-
+print your_tile.number
 
 ####################################################
 # Output of testing code
 
 #<__main__.Tile object>
-#<class '__main__.Tile'>
+#3
 #<__main__.Tile object>
-#<class '__main__.Tile'>
+#4
