@@ -1,16 +1,24 @@
-# Add a __str__ class to the Tile class
+# Add an draw method for Tile class
 
 #################################################
 # Student adds code where appropriate    
+
+import simplegui
+
+# define globals
+TILE_WIDTH = 50
+TILE_HEIGHT = 100
 
 # definition of a Tile class
 class Tile:
     
     # definition of intializer
-    def __init__(self, val, exp):
-        self.number = val
+    def __init__(self, num, exp, loc):
+        self.number = num
         self.exposed = exp
-        
+        self.location = loc
+
+       
     # definition of getter for number
     def get_number(self):
         return self.number
@@ -29,25 +37,39 @@ class Tile:
         
     # string method for tiles    
     def __str__(self):
-        return 'number is ' + str(self.get_number()) + ', ' + 'exposed is ' + str(self.is_exposed())
-    
-# create a Tile called my_tile with number 3 that is exposed    
-my_tile = Tile(3, True)
+        return "Number is " + str(self.number) + ", exposed is " + str(self.exposed)    
 
+    # draw method for tiles
+    def draw_tile(self, canvas):
+        loc = self.location
+        if self.is_exposed():
+            text_location = [loc[0] + 0.2 * TILE_WIDTH, loc[1] - 0.3 * TILE_HEIGHT]
+            canvas.draw_text(str(self.number), text_location, TILE_WIDTH, "White")
+        else:
+            tile_corners = (loc, [loc[0] + TILE_WIDTH, loc[1]], [loc[0] + TILE_WIDTH, loc[1] - TILE_HEIGHT], [loc[0], loc[1] - TILE_HEIGHT])
+            canvas.draw_polygon(tile_corners, 1, "Red", "Green")        
+        
+
+
+
+    
+# draw handler
+def draw(canvas):
+    tile1.draw_tile(canvas)
+    tile2.draw_tile(canvas)
+    
+# create frame and add a button and labels
+frame = simplegui.create_frame("Memory", 2 * TILE_WIDTH, TILE_HEIGHT)
+frame.set_draw_handler(draw)
+
+# create two tiles.make sure to update initializer  
+tile1 = Tile(3, True, [0, TILE_HEIGHT])
+tile2 = Tile(5, False, [TILE_WIDTH, TILE_HEIGHT])
+
+# get things rolling
+frame.start()
+    
     
 ###################################################
-# Testing code
-
-print my_tile
-my_tile.hide_tile()
-print my_tile
-my_tile.expose_tile()
-print my_tile
-
-
-####################################################
-# Output of testing code
-
-#number is 3, exposed is True
-#number is 3, exposed is False
-#number is 3, exposed is True
+# Resulting frame should display a tile with number 3 (left)
+# and a tile with a green back (right)
