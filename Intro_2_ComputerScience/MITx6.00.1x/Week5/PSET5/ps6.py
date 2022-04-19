@@ -272,3 +272,7 @@ print(text.build_shift_dict(3))
 print(text.apply_shift(0))
 text = Message('we are taking 6.00.1x')
 print(text.apply_shift(21))
+
+def decrypt_story():
+    cipher = CiphertextMessage(get_story_string())
+    return cipher.decrypt_message()
