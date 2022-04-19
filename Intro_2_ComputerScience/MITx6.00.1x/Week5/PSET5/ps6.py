@@ -130,13 +130,16 @@ class Message(object):
         Returns: the message text (string) in which every character is shifted
              down the alphabet by the input shift
         '''
-        map_letters = self.build_shift_dict(shift)
-        ciphertext = ''
+        self.shift_dict = Message.build_shift_dict(self, shift)
+        self.ciphertext = ''
         
         for letter in self.message_text:
-            ciphertext += map_letters[letter]
+            if letter in string.punctuation or letter in string.digits or letter in ' ':
+                self.ciphertext += letter
+            else:
+                self.ciphertext += self.shift_dict[letter]
 
-        return ciphertext
+        return self.ciphertext
 
 
 class PlaintextMessage(Message):
@@ -245,4 +248,4 @@ print(text.build_shift_dict(3))
 # Test Case apply_shift
 print(text.apply_shift(0))
 text = Message('we are taking 6.00.1x')
-print(text.apply_shift(15))
+print(text.apply_shift(21))
