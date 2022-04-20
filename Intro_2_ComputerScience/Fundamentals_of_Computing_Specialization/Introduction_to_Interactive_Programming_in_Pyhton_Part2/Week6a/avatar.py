@@ -22,7 +22,10 @@
 
 class Avatar:
     def __init__(self, name, hair, initial_gold):
-        pass  # replace this line or delete it      
+        self.name = name
+        self.hair = hair
+        self.gold = initial_gold
+        self.buried_gold = 0.0
         
         
         
@@ -38,7 +41,7 @@ class Avatar:
 # to the gold that the Avatar is carrying.
 
     def find_gold(self, amount):
-        pass  # replace this line or delete it
+        self.gold += amount
 
 # BURY_GOLD METHOD:
 # When gold is buried in the ground, the amount of gold is taken out of 
@@ -48,7 +51,8 @@ class Avatar:
 # of gold that the Avatar has buried.
    
     def bury_gold(self, amount):
-        pass   # replace this line or delete it
+        self.gold -= amount
+        self.buried_gold += amount
     
 
 # SPRINKLED_WITH_FAIRY_DUST METHOD:
@@ -59,7 +63,7 @@ class Avatar:
 # in the Avatar's bag by 10%.
 
     def sprinkled_with_fairy_dust(self):
-        pass   # replace this line or delete it
+        self.gold +=  self.gold * 0.10
 
 # __STR__ METHOD:
 # Also create a __str__ method which returns information about the Avatar, 
@@ -69,7 +73,7 @@ class Avatar:
 # of gold carried (in bag) and the amount of gold buried (in the ground).
     
     def __str__(self):
-        pass   # replace this line or delete it
+        return str(self.name) + ' has '+ str(self.gold) + ' in gold plus ' + str(self.buried_gold) + ' in buried gold'
     
 
     
@@ -88,30 +92,30 @@ class Avatar:
 # Highlight it all and hit control-shift-k to uncomment it all at once.
 
             
-#wildgirl = Avatar("Wild Girl", "purple", 5.5)
-#print wildgirl
-#wildgirl.find_gold(2.0)
-#print wildgirl
-#wildgirl.sprinkled_with_fairy_dust()
-#print wildgirl
-#wildgirl.bury_gold(2.5)
-#print "=============================="
-#print "check totals here:"
-#print wildgirl
-#print "=============================="
-#madmax = Avatar("Mad Max", "black", 6.5)
-#print madmax
-#madmax.find_gold(25.0)
-#print madmax
-#madmax.bury_gold(2.0)
-#madmax.sprinkled_with_fairy_dust()
-#madmax.bury_gold(4.5)
-#madmax.sprinkled_with_fairy_dust()
-#madmax.find_gold(10.0)
-#madmax.bury_gold(15.0)
-#madmax.sprinkled_with_fairy_dust()
-#print "=============================="
-#print "check totals here:"
-#print madmax
-#print "=============================="
+wildgirl = Avatar("Wild Girl", "purple", 5.5)
+print wildgirl
+wildgirl.find_gold(2.0)
+print wildgirl
+wildgirl.sprinkled_with_fairy_dust()
+print wildgirl
+wildgirl.bury_gold(2.5)
+print "=============================="
+print "check totals here:"
+print wildgirl
+print "=============================="
+madmax = Avatar("Mad Max", "black", 6.5)
+print madmax
+madmax.find_gold(25.0)
+print madmax
+madmax.bury_gold(2.0)
+madmax.sprinkled_with_fairy_dust()
+madmax.bury_gold(4.5)
+madmax.sprinkled_with_fairy_dust()
+madmax.find_gold(10.0)
+madmax.bury_gold(15.0)
+madmax.sprinkled_with_fairy_dust()
+print "=============================="
+print "check totals here:"
+print madmax
+print "=============================="
 
