@@ -1,4 +1,4 @@
-# Build clickable version of Memory using the Tile class
+# Final version of Memory using the Tile class
 
 #################################################
 # Student adds code where appropriate    
@@ -71,9 +71,31 @@ class Tile:
 
 # define event handlers
 def mouseclick(pos):
+    global state, turns, turn1_tile, turn2_tile
+    
     for tile in my_tiles:
         if tile.is_selected(pos):
-            tile.expose_tile()
+            clicked_tile = tile
+            
+    if clicked_tile.is_exposed():
+        return
+    
+    clicked_tile.expose_tile()
+    
+    if state == 0:
+        state = 1
+        turn1_tile = clicked_tile
+    elif state == 1:
+        state = 2
+        turn2_tile = clicked_tile
+        turns += 1
+        label.set_text("Turns = " + str(turns)) 
+    else:
+        if turn1_tile.get_number() != turn2_tile.get_number():               
+            turn1_tile.hide_tile()
+            turn2_tile.hide_tile()
+        state = 1
+        turn1_tile = clicked_tile
             
 # draw handler
 def draw(canvas):
@@ -94,4 +116,4 @@ frame.start()
     
     
 ###################################################
-# Clicking on tile should flip them once
+# Final version of Memory
