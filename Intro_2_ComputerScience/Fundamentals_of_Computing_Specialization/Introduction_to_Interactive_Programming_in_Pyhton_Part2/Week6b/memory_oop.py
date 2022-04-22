@@ -1,4 +1,4 @@
-# Initialize a game of Memory using the Tile class
+# Build clickable version of Memory using the Tile class
 
 #################################################
 # Student adds code where appropriate    
@@ -64,10 +64,16 @@ class Tile:
 
     # selection method for tiles
     def is_selected(self, pos):
-        inside_hor = self.location[0] <= pos[0] <= self.location[0] + TILE_WIDTH
+        inside_hor = self.location[0] <= pos[0] < self.location[0] + TILE_WIDTH
         inside_vert = self.location[1] - TILE_HEIGHT <= pos[1] <= self.location[1]
         return  inside_hor and inside_vert     
-       
+        
+
+# define event handlers
+def mouseclick(pos):
+    for tile in my_tiles:
+        if tile.is_selected(pos):
+            tile.expose_tile()
             
 # draw handler
 def draw(canvas):
@@ -79,6 +85,8 @@ frame = simplegui.create_frame("Memory", 2 * DISTINCT_TILES * TILE_WIDTH, TILE_H
 frame.add_button("Restart", new_game)
 label = frame.add_label("Turns = 0")
 frame.set_draw_handler(draw)
+frame.set_mouseclick_handler(mouseclick)
+
 
 # get things rolling
 new_game()
@@ -86,4 +94,4 @@ frame.start()
     
     
 ###################################################
-# Create a horizontal row of 16 Memory tile with numbers hidden
+# Clicking on tile should flip them once
