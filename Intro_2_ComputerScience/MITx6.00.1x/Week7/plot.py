@@ -22,6 +22,7 @@ plt.plot(mySamples, myExponential)
 #second trial
 plt.figure('lin')
 plt.clf()
+plt.ylim(0, 1000)
 plt.title('Linear')
 plt.xlabel('sample points')
 plt.ylabel('linear function')
