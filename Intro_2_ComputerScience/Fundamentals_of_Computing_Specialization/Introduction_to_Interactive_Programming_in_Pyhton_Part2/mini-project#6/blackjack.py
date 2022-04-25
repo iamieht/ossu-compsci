@@ -100,9 +100,21 @@ class Deck:
 
 #define event handlers for buttons
 def deal():
-    global outcome, in_play
-
-    # your code goes here
+    global outcome, in_play, deck, playerHand, dealerHand
+    deck = Deck()
+    deck.shuffle()
+    
+    playerHand = Hand()
+    dealerHand = Hand()
+    
+    playerHand.add_card(deck.deal_card())
+    playerHand.add_card(deck.deal_card())
+    print "Player's " + str(playerHand)
+    
+    dealerHand.add_card(deck.deal_card())
+    dealerHand.add_card(deck.deal_card())
+    print "Dealer's " + str(dealerHand)
+    
     
     in_play = True
 
@@ -145,4 +157,4 @@ frame.start()
 
 
 # remember to review the gradic rubric
-# CodeSkulptor = https://py2.codeskulptor.org/#user49_miuPvh3RWy_1.py
+# CodeSkulptor = https://py2.codeskulptor.org/#user49_miuPvh3RWy_2.py
