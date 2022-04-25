@@ -75,17 +75,26 @@ class Hand:
 # define deck class 
 class Deck:
     def __init__(self):
-        pass	# create a Deck object
+        # create a Deck object
+        self.deck = []
+        for suit in SUITS:
+            for rank in RANKS:
+                self.deck.append(Card(suit, rank))
 
     def shuffle(self):
         # shuffle the deck 
-        pass    # use random.shuffle()
+        random.shuffle(self.deck)
 
     def deal_card(self):
-        pass	# deal a card object from the deck
+        # deal a card object from the deck
+        return self.deck.pop(-1)
     
     def __str__(self):
-        pass	# return a string representing the deck
+        # return a string representing the deck
+        ans = 'Deck contains '
+        for card in self.deck:
+            ans += str(card) + ' '
+        return ans
 
 
 
@@ -136,5 +145,4 @@ frame.start()
 
 
 # remember to review the gradic rubric
-
-#CodeSkulptor: https://py2.codeskulptor.org/#user49_miuPvh3RWy_0.py
+# CodeSkulptor = https://py2.codeskulptor.org/#user49_miuPvh3RWy_1.py
