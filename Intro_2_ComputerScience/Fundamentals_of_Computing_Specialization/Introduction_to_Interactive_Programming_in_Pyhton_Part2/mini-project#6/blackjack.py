@@ -133,9 +133,12 @@ def deal():
     in_play = True
 
 def hit():
-    pass	# replace with your code below
- 
-    # if the hand is in play, hit the player
+    if playerHand.get_value() <= 21:
+        playerHand.add_card(deck.deal_card())
+        print "Player's " + str(playerHand)
+        
+    if playerHand.get_value() > 21:
+        print 'You have busted'
    
     # if busted, assign a message to outcome, update in_play and score
        
@@ -171,4 +174,4 @@ frame.start()
 
 
 # remember to review the gradic rubric
-# CodeSkulptor = https://py2.codeskulptor.org/#user49_miuPvh3RWy_3.py
+# CodeSkulptor = https://py2.codeskulptor.org/#user49_miuPvh3RWy_4.py
