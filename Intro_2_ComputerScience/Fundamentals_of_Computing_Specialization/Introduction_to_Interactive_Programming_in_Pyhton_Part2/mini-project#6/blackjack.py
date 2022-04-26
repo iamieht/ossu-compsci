@@ -15,12 +15,18 @@ card_back = simplegui.load_image("http://storage.googleapis.com/codeskulptor-ass
 # initialize some useful global variables
 in_play = False
 outcome = ""
-score = 0
+player_score = 0
+dealer_score = 0
 
 # define globals for cards
 SUITS = ('C', 'S', 'H', 'D')
 RANKS = ('A', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K')
 VALUES = {'A':1, '2':2, '3':3, '4':4, '5':5, '6':6, '7':7, '8':8, '9':9, 'T':10, 'J':10, 'Q':10, 'K':10}
+
+# Deck
+
+
+#Hands
 
 
 # define card class
@@ -83,7 +89,10 @@ class Hand:
         return self.hand_value
    
     def draw(self, canvas, pos):
-        pass	# draw a hand on the canvas, use the draw method for cards
+        # draw a hand on the canvas, use the draw method for cards
+        for card in self.hand:
+            card.draw(canvas, pos)
+            pos[0] += 80
  
         
 # define deck class 
@@ -114,47 +123,89 @@ class Deck:
 
 #define event handlers for buttons
 def deal():
-    global outcome, in_play, deck, playerHand, dealerHand
-    deck = Deck()
-    deck.shuffle()
+    global outcome, in_play, deck, playerHand, dealerHand, message, dealer_score
     
-    playerHand = Hand()
-    dealerHand = Hand()
+    if in_play:
+        outcome = 'Player lost because of re-deal!. New deal?'
+        dealer_score += 1
+        in_play = False
+        
+    else:
+        deck = Deck()
+        deck.shuffle()
+        outcome = 'Welcome to a new Game!'
+        
+        # Create Hands
+        playerHand = Hand()
+        dealerHand = Hand()
+        
+        # Add 2 cards to each Hand
+        playerHand.add_card(deck.deal_card())
+        playerHand.add_card(deck.deal_card())
+        dealerHand.add_card(deck.deal_card())
+        dealerHand.add_card(deck.deal_card())
+        
+        message = 'Hit or Stand?'
     
-    playerHand.add_card(deck.deal_card())
-    playerHand.add_card(deck.deal_card())
-    print "Player's " + str(playerHand)
-    
-    dealerHand.add_card(deck.deal_card())
-    dealerHand.add_card(deck.deal_card())
-    print "Dealer's " + str(dealerHand)
-    
-    
-    in_play = True
+        in_play = True
 
 def hit():
-    if playerHand.get_value() <= 21:
-        playerHand.add_card(deck.deal_card())
-        print "Player's " + str(playerHand)
+    global in_play, outcome, message, player_score, dealer_score
+    if in_play:
+        if playerHand.get_value() <= 21:
+            playerHand.add_card(deck.deal_card())
         
-    if playerHand.get_value() > 21:
-        print 'You have busted'
-   
-    # if busted, assign a message to outcome, update in_play and score
+        if playerHand.get_value() > 21:
+            outcome = 'You have busted. Nee deal?'
+            in_play = False
+            dealer_score += 1
+            message = ''
+ 
        
 def stand():
-    pass	# replace with your code below
-   
-    # if hand is in play, repeatedly hit dealer until his hand has value 17 or more
+    global in_play, dealerHand, outcome, player_score, dealer_score, message
+     
+    if in_play:
+        while dealerHand.get_value() < 17:
+            dealerHand.add_card(deck.deal_card())
 
-    # assign a message to outcome, update in_play and score
+        if dealerHand.get_value() > 21:
+            outcome = 'Dealer busted. Congratulations!'
+            player_score += 1
+            message = 'New Deal?'
+
+        else:
+            if dealerHand.get_value() >= playerHand.get_value() or playerHand.get_value() > 21:
+                outcome = "Dealer wins. New deal?"
+                dealer_score += 1
+                message = ''
+            else:
+                outcome = "Player wins. New deal?"
+                player_score += 1
+                message = ''
+                
+        in_play = False
 
 # draw handler    
 def draw(canvas):
-    # test to make sure that card.draw works, replace with your code below
+    global outcome, player_score, dealer_score, message
     
-    card = Card("S", "A")
-    card.draw(canvas, [300, 300])
+    canvas.draw_text("Blackjack", [220, 50], 50 ,"Lime")
+    
+    #Hands
+    playerHand.draw(canvas, [100,300])
+    dealerHand.draw(canvas, [100, 150])
+    
+    #Outcome/Messages
+    canvas.draw_text(outcome, [10, 100], 30 ,"Lime")
+    canvas.draw_text(message, [200,480], 26, "Black")
+    
+    #Scores
+    canvas.draw_text("Dealer: %s" % dealer_score, [10, 150], 20 ,"Black")
+    canvas.draw_text("Player: %s" % player_score, [10, 300], 20 ,"White")
+
+    if in_play:
+        canvas.draw_image(card_back, CARD_BACK_CENTER, CARD_BACK_SIZE, (136,199), CARD_BACK_SIZE)
 
 
 # initialization frame
@@ -174,4 +225,4 @@ frame.start()
 
 
 # remember to review the gradic rubric
-# CodeSkulptor = https://py2.codeskulptor.org/#user49_miuPvh3RWy_5.py
+# CodeSkulptor = https://py2.codeskulptor.org/#user49_miuPvh3RWy_7.py
