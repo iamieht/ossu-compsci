@@ -66,7 +66,21 @@ class Hand:
 
     def get_value(self):
         # count aces as 1, if the hand has an ace, then add 10 to hand value if it doesn't bust
-        pass	# compute the value of the hand, see Blackjack video
+        # compute the value of the hand, see Blackjack video
+        self.hand_value = 0
+        ace = False
+        aces = ['CA','SA','HA','DA']
+        
+        for card in self.hand:
+            self.hand_value += VALUES[card.get_rank()]
+            if str(card) in aces:
+                ace = True
+        
+        if ace:
+            if self.hand_value + 10 <= 21:
+                self.hand_value += 10
+                           
+        return self.hand_value
    
     def draw(self, canvas, pos):
         pass	# draw a hand on the canvas, use the draw method for cards
@@ -157,4 +171,4 @@ frame.start()
 
 
 # remember to review the gradic rubric
-# CodeSkulptor = https://py2.codeskulptor.org/#user49_miuPvh3RWy_2.py
+# CodeSkulptor = https://py2.codeskulptor.org/#user49_miuPvh3RWy_3.py
