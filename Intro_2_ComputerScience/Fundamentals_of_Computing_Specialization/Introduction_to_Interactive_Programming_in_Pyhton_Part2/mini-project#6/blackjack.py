@@ -156,7 +156,7 @@ def hit():
             playerHand.add_card(deck.deal_card())
         
         if playerHand.get_value() > 21:
-            outcome = 'You have busted. Nee deal?'
+            outcome = 'You have busted. New deal?'
             in_play = False
             dealer_score += 1
             message = ''
@@ -225,4 +225,4 @@ frame.start()
 
 
 # remember to review the gradic rubric
-# CodeSkulptor = https://py2.codeskulptor.org/#user49_miuPvh3RWy_7.py
+# CodeSkulptor = https://py2.codeskulptor.org/#user49_1AepuENp0XjZssq_0.py
