@@ -18,6 +18,9 @@ firing_angle = math.pi / 2
 firing_angle_vel = 0
 bubble_stuck = True
 
+# firing sound
+firing_sound = simplegui.load_sound("http://commondatastorage.googleapis.com/codeskulptor-assets/Collision8-Bit.ogg")
+
 
 # helper functions to handle transformations
 def angle_to_vector(ang):
@@ -30,10 +33,11 @@ def dist(p,q):
 # class defintion for Bubbles
 class Bubble:
     
-    def __init__(self):
+    def __init__(self, sound = None):
         self.pos = list(FIRING_POSITION)
         self.vel = [0, 0]
         self.color = random.choice(COLOR_LIST)
+        self.sound = sound
         
     def update(self):
         self.pos[0] += self.vel[0]
@@ -43,6 +47,9 @@ class Bubble:
             
     def fire_bubble(self, vel):
         self.vel = vel
+        if self.sound:
+            self.sound.play()
+            
                 
     def is_stuck(self): 
         pass
@@ -99,5 +106,5 @@ frame.set_keyup_handler(keyup)
 frame.set_draw_handler(draw)
 
 # create initial buble and start frame
-a_bubble = Bubble()
+a_bubble = Bubble(firing_sound)
 frame.start()
