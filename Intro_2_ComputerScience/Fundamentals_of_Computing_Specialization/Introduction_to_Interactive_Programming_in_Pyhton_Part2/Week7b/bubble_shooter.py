@@ -65,6 +65,10 @@ def draw(canvas):
     # update firing angle
     
     # draw firing line
+    orient = angle_to_vector(firing_angle)
+    upper_endpoint = [FIRING_POSITION[0] + FIRING_LINE_LENGTH * orient[0], 
+                      FIRING_POSITION[1] - FIRING_LINE_LENGTH * orient[1]]
+    canvas.draw_line(FIRING_POSITION, upper_endpoint, 4, "White")
     
     # update a_bubble and check for sticking
     
