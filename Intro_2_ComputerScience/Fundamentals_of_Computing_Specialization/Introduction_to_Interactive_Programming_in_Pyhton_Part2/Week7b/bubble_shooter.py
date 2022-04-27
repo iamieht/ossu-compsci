@@ -31,13 +31,18 @@ def dist(p,q):
 class Bubble:
     
     def __init__(self):
-        pass
+        self.pos = list(FIRING_POSITION)
+        self.vel = [0, 0]
+        self.color = random.choice(COLOR_LIST)
     
     def update(self):
-        pass
+        self.pos[0] += self.vel[0]
+        self.pos[1] += self.vel[1]
+        if self.pos[0] <= BUBBLE_RADIUS or self.pos[0] >= WIDTH - BUBBLE_RADIUS:
+            self.vel[0] = - self.vel[0]
         
     def fire_bubble(self, vel):
-        pass
+        self.vel = vel
         
     def is_stuck(self): 
         pass
@@ -46,7 +51,7 @@ class Bubble:
         pass
             
     def draw(self, canvas):
-        pass
+        canvas.draw_circle(self.pos, BUBBLE_RADIUS, 1, "White", self.color)
         
 
 # define keyhandlers to control firing_angle
@@ -70,7 +75,7 @@ def draw(canvas):
     global firing_angle, a_bubble, bubble_stuck
     
     # update firing angle
-    
+    firing_angle += firing_angle_vel
     # draw firing line
     orient = angle_to_vector(firing_angle)
     upper_endpoint = [FIRING_POSITION[0] + FIRING_LINE_LENGTH * orient[0], 
