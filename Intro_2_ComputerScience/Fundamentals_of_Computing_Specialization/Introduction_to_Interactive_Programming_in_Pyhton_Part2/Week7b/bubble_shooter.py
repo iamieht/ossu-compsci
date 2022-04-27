@@ -34,16 +34,16 @@ class Bubble:
         self.pos = list(FIRING_POSITION)
         self.vel = [0, 0]
         self.color = random.choice(COLOR_LIST)
-    
+        
     def update(self):
         self.pos[0] += self.vel[0]
         self.pos[1] += self.vel[1]
         if self.pos[0] <= BUBBLE_RADIUS or self.pos[0] >= WIDTH - BUBBLE_RADIUS:
             self.vel[0] = - self.vel[0]
-        
+            
     def fire_bubble(self, vel):
         self.vel = vel
-        
+                
     def is_stuck(self): 
         pass
 
@@ -52,18 +52,21 @@ class Bubble:
             
     def draw(self, canvas):
         canvas.draw_circle(self.pos, BUBBLE_RADIUS, 1, "White", self.color)
-        
+           
 
 # define keyhandlers to control firing_angle
 def keydown(key):
     global a_bubble, firing_angle_vel, bubble_stuck
-    if simplegui.KEY_MAP["left"] == key:
+    if simplegui.KEY_MAP["space"] == key:
+        bubble_stuck = False
+        vel = angle_to_vector(firing_angle)
+        a_bubble.fire_bubble([4 * vel[0], -4 * vel[1]])
+    elif simplegui.KEY_MAP["left"] == key:
         firing_angle_vel += FIRING_ANGLE_VEL_INC
     elif simplegui.KEY_MAP["right"] == key:
         firing_angle_vel -= FIRING_ANGLE_VEL_INC
 
 def keyup(key):
-    global firing_angle_vel
     global firing_angle_vel
     if simplegui.KEY_MAP["left"] == key:
         firing_angle_vel -= FIRING_ANGLE_VEL_INC
@@ -76,15 +79,18 @@ def draw(canvas):
     
     # update firing angle
     firing_angle += firing_angle_vel
-    # draw firing line
+    
+    #draw firing line
     orient = angle_to_vector(firing_angle)
     upper_endpoint = [FIRING_POSITION[0] + FIRING_LINE_LENGTH * orient[0], 
                       FIRING_POSITION[1] - FIRING_LINE_LENGTH * orient[1]]
     canvas.draw_line(FIRING_POSITION, upper_endpoint, 4, "White")
     
     # update a_bubble and check for sticking
+    a_bubble.update()
     
     # draw a bubble and stuck bubbles
+    a_bubble.draw(canvas)
  
 # create frame and register handlers
 frame = simplegui.create_frame("Bubble Shooter", WIDTH, HEIGHT)
@@ -93,4 +99,5 @@ frame.set_keyup_handler(keyup)
 frame.set_draw_handler(draw)
 
 # create initial buble and start frame
+a_bubble = Bubble()
 frame.start()
