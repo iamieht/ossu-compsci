@@ -101,10 +101,18 @@ class Ship:
         self.radius = info.get_radius()
         
     def draw(self,canvas):
-        canvas.draw_circle(self.pos, self.radius, 1, "White", "White")
+        canvas.draw_image(self.image, self.image_center, self.image_size, self.pos, self.image_size, self.angle)
 
     def update(self):
-        pass
+        self.angle += self.angle_vel
+        self.pos[0] += self.vel[0]
+        self.pos[1] += self.vel[1]
+        
+    def increment_angle_vel(self):
+        self.angle_vel += 0.1
+        
+    def decrement_angle_vel(self):
+        self.angle_vel -= 0.1
     
     
 # Sprite class
@@ -157,7 +165,19 @@ def draw(canvas):
 # timer handler that spawns a rock    
 def rock_spawner():
     pass
-    
+
+def keydown_handler(key):
+    if key == simplegui.KEY_MAP['right']:
+        my_ship.increment_angle_vel()
+    elif key == simplegui.KEY_MAP['left']:
+        my_ship.decrement_angle_vel()
+        
+def keyup_handler(key):
+    if key == simplegui.KEY_MAP['right']:
+        my_ship.decrement_angle_vel()
+    elif key == simplegui.KEY_MAP['left']:
+        my_ship.increment_angle_vel()
+        
 # initialize frame
 frame = simplegui.create_frame("Asteroids", WIDTH, HEIGHT)
 
@@ -168,9 +188,14 @@ a_missile = Sprite([2 * WIDTH / 3, 2 * HEIGHT / 3], [-1,1], 0, 0, missile_image,
 
 # register handlers
 frame.set_draw_handler(draw)
+frame.set_keydown_handler(keydown_handler)
+frame.set_keyup_handler(keyup_handler)
 
 timer = simplegui.create_timer(1000.0, rock_spawner)
 
 # get things rolling
 timer.start()
 frame.start()
+
+
+#CodeSkulptor = https://py2.codeskulptor.org/#user49_78mwAYYsGo_2.py
