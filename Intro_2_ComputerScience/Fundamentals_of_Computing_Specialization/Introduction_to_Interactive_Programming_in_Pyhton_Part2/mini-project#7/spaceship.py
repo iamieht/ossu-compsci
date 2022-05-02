@@ -116,6 +116,15 @@ class Ship:
         
     def decrement_angle_vel(self):
         self.angle_vel -= 0.1
+
+    def set_thrust(self, on):
+        if on:
+            self.thrust = True
+            ship_thrust_sound.play()
+            
+        else:
+            self.thrust = False
+            ship_thrust_sound.rewind()
     
     
 # Sprite class
@@ -201,4 +210,4 @@ timer.start()
 frame.start()
 
 
-#CodeSkulptor = https://py2.codeskulptor.org/#user49_78mwAYYsGo_4.py
+#CodeSkulptor = https://py2.codeskulptor.org/#user49_78mwAYYsGo_5.py
