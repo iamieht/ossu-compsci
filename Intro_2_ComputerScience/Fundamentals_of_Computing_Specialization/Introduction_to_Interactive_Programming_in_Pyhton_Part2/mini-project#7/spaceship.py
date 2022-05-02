@@ -56,6 +56,7 @@ splash_image = simplegui.load_image("http://commondatastorage.googleapis.com/cod
 ship_info = ImageInfo([45, 45], [90, 90], 35)
 ship_image = simplegui.load_image("http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/double_ship.png")
 
+
 # missile image - shot1.png, shot2.png, shot3.png
 missile_info = ImageInfo([5,5], [10, 10], 3, 50)
 missile_image = simplegui.load_image("http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/shot2.png")
@@ -108,15 +109,27 @@ class Ship:
 
     def update(self):
         self.angle += self.angle_vel
-        self.pos[0] += self.vel[0]
-        self.pos[1] += self.vel[1]
+        self.pos[0] = (self.pos[0] + self.vel[0]) % WIDTH
+        self.pos[1] = (self.pos[1] + self.vel[1]) % HEIGHT
+        
+        #forward vector
+        if self.thrust:
+            forward = angle_to_vector(self.angle)
+            self.vel[0] += forward[0] * 0.10
+            self.vel[1] += forward[1] * 0.10
+            
+        
+        #Friction
+        self.vel[0] *= (1-0.010)
+        self.vel[1] *= (1-0.010)
+        
         
     def increment_angle_vel(self):
         self.angle_vel += 0.1
         
     def decrement_angle_vel(self):
         self.angle_vel -= 0.1
-
+    
     def set_thrust(self, on):
         if on:
             self.thrust = True
@@ -125,8 +138,7 @@ class Ship:
         else:
             self.thrust = False
             ship_thrust_sound.rewind()
-    
-    
+            
 # Sprite class
 class Sprite:
     def __init__(self, pos, vel, ang, ang_vel, image, info, sound = None):
@@ -183,12 +195,16 @@ def keydown_handler(key):
         my_ship.increment_angle_vel()
     elif key == simplegui.KEY_MAP['left']:
         my_ship.decrement_angle_vel()
+    elif key == simplegui.KEY_MAP['up']:
+        my_ship.set_thrust(True)
         
 def keyup_handler(key):
     if key == simplegui.KEY_MAP['right']:
         my_ship.decrement_angle_vel()
     elif key == simplegui.KEY_MAP['left']:
         my_ship.increment_angle_vel()
+    elif key == simplegui.KEY_MAP['up']:
+        my_ship.set_thrust(False)
         
 # initialize frame
 frame = simplegui.create_frame("Asteroids", WIDTH, HEIGHT)
@@ -209,5 +225,4 @@ timer = simplegui.create_timer(1000.0, rock_spawner)
 timer.start()
 frame.start()
 
-
-#CodeSkulptor = https://py2.codeskulptor.org/#user49_78mwAYYsGo_5.py
+#CodeSkulptor = https://py2.codeskulptor.org/#user49_78mwAYYsGo_7.py
