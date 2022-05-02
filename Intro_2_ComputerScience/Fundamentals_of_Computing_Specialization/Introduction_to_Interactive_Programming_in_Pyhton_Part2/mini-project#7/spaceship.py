@@ -139,6 +139,14 @@ class Ship:
             self.thrust = False
             ship_thrust_sound.rewind()
             
+    def shoot(self):
+        global a_missile
+        forward = angle_to_vector(self.angle)
+        missile_position = [self.pos[0] + self.radius * forward[0], self.pos[1] + self.radius * forward[1]]
+        missile_velocity = [self.vel[0] + 3 * forward[0], self.vel[1] + 3 * forward[1]]
+        a_missile = Sprite(missile_position, missile_velocity, self.angle, 0, missile_image, missile_info, missile_sound)
+        
+            
 # Sprite class
 class Sprite:
     def __init__(self, pos, vel, ang, ang_vel, image, info, sound = None):
@@ -187,6 +195,14 @@ def draw(canvas):
     my_ship.update()
     a_rock.update()
     a_missile.update()
+    
+    # draw lives
+    canvas.draw_text("Lives", (40, 40), 18, "White", "sans-serif")
+    canvas.draw_text(str(lives), (40, 64), 18, "White", "sans-serif")
+    
+    # draw score
+    canvas.draw_text("Score", (WIDTH - 80, 40), 18, "White", "sans-serif")
+    canvas.draw_text(str(score), (WIDTH - 80, 64), 18, "White", "sans-serif")
             
 # timer handler that spawns a rock    
 def rock_spawner():
@@ -203,6 +219,8 @@ def keydown_handler(key):
         my_ship.decrement_angle_vel()
     elif key == simplegui.KEY_MAP['up']:
         my_ship.set_thrust(True)
+    elif key == simplegui.KEY_MAP['space']:
+        my_ship.shoot()    
         
 def keyup_handler(key):
     if key == simplegui.KEY_MAP['right']:
@@ -219,6 +237,7 @@ frame = simplegui.create_frame("Asteroids", WIDTH, HEIGHT)
 my_ship = Ship([WIDTH / 2, HEIGHT / 2], [0, 0], 0, ship_image, ship_info)
 a_rock = Sprite([WIDTH / 3, HEIGHT / 3], [1, 1], 0, 0.1, asteroid_image, asteroid_info)
 a_missile = Sprite([2 * WIDTH / 3, 2 * HEIGHT / 3], [-1,1], 0, 0, missile_image, missile_info, missile_sound)
+#a_missile = Sprite([my_ship.pos + my_ship.vel], [0,0], 0, 0, missile_image, missile_info, missile_sound)
 
 # register handlers
 frame.set_draw_handler(draw)
@@ -231,4 +250,4 @@ timer = simplegui.create_timer(1000.0, rock_spawner)
 timer.start()
 frame.start()
 
-#CodeSkulptor = https://py2.codeskulptor.org/#user49_78mwAYYsGo_9.py
+#CodeSkulptor = https://py2.codeskulptor.org/#user49_kZPmWMXhExVwm5I.py
