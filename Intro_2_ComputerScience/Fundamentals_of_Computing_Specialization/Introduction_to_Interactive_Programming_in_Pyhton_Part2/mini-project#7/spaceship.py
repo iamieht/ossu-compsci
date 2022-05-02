@@ -101,7 +101,10 @@ class Ship:
         self.radius = info.get_radius()
         
     def draw(self,canvas):
-        canvas.draw_image(self.image, self.image_center, self.image_size, self.pos, self.image_size, self.angle)
+        if self.thrust:
+            canvas.draw_image(self.image, [130,45], self.image_size, self.pos, self.image_size, self.angle)
+        else:    
+            canvas.draw_image(self.image, self.image_center, self.image_size, self.pos, self.image_size, self.angle)
 
     def update(self):
         self.angle += self.angle_vel
@@ -198,4 +201,4 @@ timer.start()
 frame.start()
 
 
-#CodeSkulptor = https://py2.codeskulptor.org/#user49_78mwAYYsGo_3.py
+#CodeSkulptor = https://py2.codeskulptor.org/#user49_78mwAYYsGo_4.py
