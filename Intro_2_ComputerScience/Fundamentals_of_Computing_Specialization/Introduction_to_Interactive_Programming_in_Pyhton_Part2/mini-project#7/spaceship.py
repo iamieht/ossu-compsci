@@ -158,10 +158,12 @@ class Sprite:
             sound.play()
    
     def draw(self, canvas):
-        canvas.draw_circle(self.pos, self.radius, 1, "Red", "Red")
+        canvas.draw_image(self.image, self.image_center, self.image_size, self.pos, self.image_size, self.angle)
     
     def update(self):
-        pass        
+        self.angle += self.angle_vel
+        self.pos[0] += self.vel[0]
+        self.pos[1] += self.vel[1]        
 
            
 def draw(canvas):
@@ -188,7 +190,11 @@ def draw(canvas):
             
 # timer handler that spawns a rock    
 def rock_spawner():
-    pass
+    global a_rock
+    pos = [random.randrange(WIDTH), random.randrange(HEIGHT)]
+    vel = [random.choice([0.7, -1]) * random.random() * 2,random.choice([0.5, -1]) * random.random() * 2]
+    ang_vel = random.choice([0.5, -1]) * 0.05
+    a_rock = Sprite(pos, vel, 1, ang_vel, asteroid_image, asteroid_info)
 
 def keydown_handler(key):
     if key == simplegui.KEY_MAP['right']:
@@ -211,7 +217,7 @@ frame = simplegui.create_frame("Asteroids", WIDTH, HEIGHT)
 
 # initialize ship and two sprites
 my_ship = Ship([WIDTH / 2, HEIGHT / 2], [0, 0], 0, ship_image, ship_info)
-a_rock = Sprite([WIDTH / 3, HEIGHT / 3], [1, 1], 0, 0, asteroid_image, asteroid_info)
+a_rock = Sprite([WIDTH / 3, HEIGHT / 3], [1, 1], 0, 0.1, asteroid_image, asteroid_info)
 a_missile = Sprite([2 * WIDTH / 3, 2 * HEIGHT / 3], [-1,1], 0, 0, missile_image, missile_info, missile_sound)
 
 # register handlers
@@ -225,4 +231,4 @@ timer = simplegui.create_timer(1000.0, rock_spawner)
 timer.start()
 frame.start()
 
-#CodeSkulptor = https://py2.codeskulptor.org/#user49_78mwAYYsGo_7.py
+#CodeSkulptor = https://py2.codeskulptor.org/#user49_78mwAYYsGo_9.py
