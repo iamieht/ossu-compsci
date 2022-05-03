@@ -66,7 +66,7 @@ class Bubble:
 # define keyhandlers to control firing_angle
 def keydown(key):
     global a_bubble, firing_angle_vel, bubble_stuck
-    if simplegui.KEY_MAP["space"] == key:
+    if simplegui.KEY_MAP["space"] == key and bubble_stuck:
         bubble_stuck = False
         vel = angle_to_vector(firing_angle)
         a_bubble.fire_bubble([4 * vel[0], -4 * vel[1]])
@@ -97,6 +97,9 @@ def draw(canvas):
     
     # update a_bubble and check for sticking
     a_bubble.update()
+    if a_bubble.is_stuck():
+        bubble_stuck = True
+        a_bubble = Bubble(firing_sound)
     
     # draw a bubble and stuck bubbles
     a_bubble.draw(canvas)
