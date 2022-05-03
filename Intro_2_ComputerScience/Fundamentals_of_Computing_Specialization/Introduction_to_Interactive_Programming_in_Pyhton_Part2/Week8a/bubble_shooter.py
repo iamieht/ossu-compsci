@@ -57,7 +57,7 @@ class Bubble:
         return False
 
     def collide(self, bubble):
-        pass
+        return dist(self.pos, bubble.pos) <= 2 * BUBBLE_RADIUS
             
     def draw(self, canvas):
         canvas.draw_circle(self.pos, BUBBLE_RADIUS, 1, "White", self.color)
