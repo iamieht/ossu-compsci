@@ -99,10 +99,13 @@ def draw(canvas):
     a_bubble.update()
     if a_bubble.is_stuck():
         bubble_stuck = True
+        stuck_bubbles.add(a_bubble)
         a_bubble = Bubble(firing_sound)
     
     # draw a bubble and stuck bubbles
     a_bubble.draw(canvas)
+    for b in stuck_bubbles:
+        b.draw(canvas)
  
 # create frame and register handlers
 frame = simplegui.create_frame("Bubble Shooter", WIDTH, HEIGHT)
@@ -112,4 +115,5 @@ frame.set_draw_handler(draw)
 
 # create initial buble and start frame
 a_bubble = Bubble(firing_sound)
+stuck_bubbles = set([])
 frame.start()
