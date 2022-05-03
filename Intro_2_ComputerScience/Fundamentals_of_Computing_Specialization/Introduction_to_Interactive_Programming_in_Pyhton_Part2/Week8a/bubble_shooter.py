@@ -51,9 +51,12 @@ class Bubble:
             self.sound.play()
             
                 
-    def is_stuck(self): 
+    def is_stuck(self, bubble_group): 
         if self.pos[1] <= BUBBLE_RADIUS:
             return True
+        for b in bubble_group:
+            if self.collide(b):
+                return True
         return False
 
     def collide(self, bubble):
@@ -97,7 +100,7 @@ def draw(canvas):
     
     # update a_bubble and check for sticking
     a_bubble.update()
-    if a_bubble.is_stuck():
+    if a_bubble.is_stuck(stuck_bubbles):
         bubble_stuck = True
         stuck_bubbles.add(a_bubble)
         a_bubble = Bubble(firing_sound)
