@@ -101,6 +101,9 @@ def process_sprite_group(aSet, canvas):
 def group_collide(aSet, other_sprite):
     for sprite in set(aSet):
         if sprite.collide(other_sprite):
+            explosion_group.add(Sprite (sprite.pos, [0, 0], 0, 0, explosion_image, explosion_info))
+            explosion_sound.rewind()
+            explosion_sound.play()
             aSet.remove(sprite)
             return True
         
@@ -207,8 +210,12 @@ class Sprite:
             sound.play()
    
     def draw(self, canvas):
-        canvas.draw_image(self.image, self.image_center, self.image_size,
-                          self.pos, self.image_size, self.angle)
+        if self.animated:
+            canvas.draw_image(self.image, [self.image_center[0] + self.image_size[0] * self.age, 
+                            self.image_center[1]], self.image_size, self.pos, self.image_size, self.angle)
+        else:
+            canvas.draw_image(self.image, self.image_center, self.image_size,
+                                self.pos, self.image_size, self.angle)
 
     def update(self):
         # update angle
@@ -270,7 +277,7 @@ def click(pos):
         soundtrack.play()
 
 def draw(canvas):
-    global time, started, lives, score, rock_group, missile_group, my_ship
+    global time, started, lives, score, rock_group, missile_group, my_ship, explosion_group
     
     # animiate background
     time += 1
@@ -290,9 +297,10 @@ def draw(canvas):
     # draw ship and sprites
     my_ship.draw(canvas)
     
-    # draw & update the rocks and missiles
+    # draw & update the rocks and missiles and explosions
     process_sprite_group(rock_group, canvas)
     process_sprite_group(missile_group, canvas)
+    process_sprite_group(explosion_group, canvas)
     
     # update ship and sprites
     my_ship.update()
@@ -356,6 +364,7 @@ my_ship = Ship([WIDTH / 2, HEIGHT / 2], [0, 0], 0, ship_image, ship_info)
 #a_missile = Sprite([2 * WIDTH / 3, 2 * HEIGHT / 3], [-1,1], 0, 0, missile_image, missile_info, missile_sound)
 rock_group = set([])
 missile_group = set([])
+explosion_group = set([])
 
 # register handlers
 frame.set_keyup_handler(keyup)
@@ -369,4 +378,4 @@ timer = simplegui.create_timer(speed, rock_spawner)
 timer.start()
 frame.start()
 
-#CodeSkulptor: https://py2.codeskulptor.org/#user49_3M1R25X5f9_17.py
+#CodeSkulptor: https://py2.codeskulptor.org/#user49_VcCwtNnywSSoSeo.py
