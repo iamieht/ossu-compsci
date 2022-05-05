@@ -103,7 +103,17 @@ def group_collide(aSet, other_sprite):
             aSet.remove(sprite)
             return True
         
-    return False            
+    return False
+
+def group_group_collide(aSet, bSet):
+    total_collisions = 0
+    for element in set(aSet):
+        if group_collide(bSet, element):
+            total_collisions += 1
+            aSet.discard(element)
+            
+    return total_collisions
+            
         
 
 
@@ -252,7 +262,7 @@ def click(pos):
         started = True
 
 def draw(canvas):
-    global time, started, lives
+    global time, started, lives, score
     
     # animiate background
     time += 1
@@ -284,6 +294,8 @@ def draw(canvas):
     # collisions
     if group_collide(rock_group, my_ship):
         lives -= 1
+        
+    score += group_group_collide(rock_group, missile_group)
 
     # draw splash screen if not started
     if not started:
@@ -323,4 +335,4 @@ timer = simplegui.create_timer(1000.0, rock_spawner)
 timer.start()
 frame.start()
 
-#CodeSkultor = https://py2.codeskulptor.org/#user49_3M1R25X5f9_10.py
+#CodeSkultor = https://py2.codeskulptor.org/#user49_3M1R25X5f9_13.py
