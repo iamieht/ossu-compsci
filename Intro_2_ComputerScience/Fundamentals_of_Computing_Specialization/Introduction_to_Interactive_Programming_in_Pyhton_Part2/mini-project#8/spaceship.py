@@ -89,6 +89,12 @@ def angle_to_vector(ang):
 def dist(p, q):
     return math.sqrt((p[0] - q[0]) ** 2 + (p[1] - q[1]) ** 2)
 
+# helper function to draw and update groups of Sprites
+def process_sprite_group(aSet, canvas):
+    for element in aSet:
+        element.draw(canvas)
+        element.update()
+
 
 # Ship class
 class Ship:
@@ -233,12 +239,15 @@ def draw(canvas):
 
     # draw ship and sprites
     my_ship.draw(canvas)
-    a_rock.draw(canvas)
+#    a_rock.draw(canvas)
     a_missile.draw(canvas)
+    
+    # draw & update the rocks
+    process_sprite_group(rock_group, canvas)
     
     # update ship and sprites
     my_ship.update()
-    a_rock.update()
+#    a_rock.update()
     a_missile.update()
 
     # draw splash screen if not started
@@ -249,20 +258,22 @@ def draw(canvas):
 
 # timer handler that spawns a rock    
 def rock_spawner():
-    global a_rock
+    global rock_group
     rock_pos = [random.randrange(0, WIDTH), random.randrange(0, HEIGHT)]
     rock_vel = [random.random() * .6 - .3, random.random() * .6 - .3]
     rock_avel = random.random() * .2 - .1
     a_rock = Sprite(rock_pos, rock_vel, 0, rock_avel, asteroid_image, asteroid_info)
+    if len(rock_group) < 12:	#limit the number of rocks to 12
+        rock_group.add(a_rock)
             
 # initialize stuff
 frame = simplegui.create_frame("Asteroids", WIDTH, HEIGHT)
 
 # initialize ship and two sprites
 my_ship = Ship([WIDTH / 2, HEIGHT / 2], [0, 0], 0, ship_image, ship_info)
-a_rock = Sprite([WIDTH / 3, HEIGHT / 3], [1, 1], 0, .1, asteroid_image, asteroid_info)
+#a_rock = Sprite([WIDTH / 3, HEIGHT / 3], [1, 1], 0, .1, asteroid_image, asteroid_info)
 a_missile = Sprite([2 * WIDTH / 3, 2 * HEIGHT / 3], [-1,1], 0, 0, missile_image, missile_info, missile_sound)
-
+rock_group = set([])
 
 # register handlers
 frame.set_keyup_handler(keyup)
@@ -275,3 +286,5 @@ timer = simplegui.create_timer(1000.0, rock_spawner)
 # get things rolling
 timer.start()
 frame.start()
+
+##CodeSkultor: https://py2.codeskulptor.org/#user49_3M1R25X5f9_2.py
