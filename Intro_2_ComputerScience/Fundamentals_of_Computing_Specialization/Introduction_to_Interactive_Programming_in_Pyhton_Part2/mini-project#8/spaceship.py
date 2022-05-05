@@ -91,9 +91,10 @@ def dist(p, q):
 
 # helper function to draw and update groups of Sprites
 def process_sprite_group(aSet, canvas):
-    for element in aSet:
+    for element in set(aSet):
         element.draw(canvas)
-        element.update()
+        if element.update():
+            aSet.remove(element)
         
 # helper function to control collisions
 def group_collide(aSet, other_sprite):
@@ -161,11 +162,12 @@ class Ship:
         self.angle_vel -= .05
         
     def shoot(self):
-        global a_missile
+        global missile_group
         forward = angle_to_vector(self.angle)
         missile_pos = [self.pos[0] + self.radius * forward[0], self.pos[1] + self.radius * forward[1]]
         missile_vel = [self.vel[0] + 6 * forward[0], self.vel[1] + 6 * forward[1]]
         a_missile = Sprite(missile_pos, missile_vel, self.angle, 0, missile_image, missile_info, missile_sound)
+        missile_group.add(a_missile)
         
     def get_position(self):
         return self.pos
@@ -204,6 +206,11 @@ class Sprite:
         # update position
         self.pos[0] = (self.pos[0] + self.vel[0]) % WIDTH
         self.pos[1] = (self.pos[1] + self.vel[1]) % HEIGHT
+        
+        # sprite lifespan
+        self.age += 1
+        return self.age >= self.lifespan
+            
         
     def get_position(self):
         return self.pos
@@ -264,14 +271,15 @@ def draw(canvas):
 
     # draw ship and sprites
     my_ship.draw(canvas)
-    a_missile.draw(canvas)
+#    a_missile.draw(canvas)
     
-    # draw & update the rocks
+    # draw & update the rocks and missiles
     process_sprite_group(rock_group, canvas)
+    process_sprite_group(missile_group, canvas)
     
     # update ship and sprites
     my_ship.update()
-    a_missile.update()
+#    a_missile.update()
     
     # collisions
     if group_collide(rock_group, my_ship):
@@ -299,8 +307,9 @@ frame = simplegui.create_frame("Asteroids", WIDTH, HEIGHT)
 # initialize ship and two sprites
 my_ship = Ship([WIDTH / 2, HEIGHT / 2], [0, 0], 0, ship_image, ship_info)
 #a_rock = Sprite([WIDTH / 3, HEIGHT / 3], [1, 1], 0, .1, asteroid_image, asteroid_info)
-a_missile = Sprite([2 * WIDTH / 3, 2 * HEIGHT / 3], [-1,1], 0, 0, missile_image, missile_info, missile_sound)
+#a_missile = Sprite([2 * WIDTH / 3, 2 * HEIGHT / 3], [-1,1], 0, 0, missile_image, missile_info, missile_sound)
 rock_group = set([])
+missile_group = set([])
 
 # register handlers
 frame.set_keyup_handler(keyup)
@@ -314,4 +323,4 @@ timer = simplegui.create_timer(1000.0, rock_spawner)
 timer.start()
 frame.start()
 
-#CodeSkulptor: https://py2.codeskulptor.org/#user49_3M1R25X5f9_7.py
+#CodeSkultor = https://py2.codeskulptor.org/#user49_3M1R25X5f9_10.py
