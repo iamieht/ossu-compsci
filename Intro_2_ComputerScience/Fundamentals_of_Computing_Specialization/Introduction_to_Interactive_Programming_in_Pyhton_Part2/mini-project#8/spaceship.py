@@ -94,6 +94,16 @@ def process_sprite_group(aSet, canvas):
     for element in aSet:
         element.draw(canvas)
         element.update()
+        
+# helper function to control collisions
+def group_collide(aSet, other_sprite):
+    for sprite in set(aSet):
+        if sprite.collide(other_sprite):
+            aSet.remove(sprite)
+            return True
+        
+    return False            
+        
 
 
 # Ship class
@@ -156,6 +166,12 @@ class Ship:
         missile_pos = [self.pos[0] + self.radius * forward[0], self.pos[1] + self.radius * forward[1]]
         missile_vel = [self.vel[0] + 6 * forward[0], self.vel[1] + 6 * forward[1]]
         a_missile = Sprite(missile_pos, missile_vel, self.angle, 0, missile_image, missile_info, missile_sound)
+        
+    def get_position(self):
+        return self.pos
+    
+    def get_radius(self):
+        return self.radius
     
     
     
@@ -188,6 +204,15 @@ class Sprite:
         # update position
         self.pos[0] = (self.pos[0] + self.vel[0]) % WIDTH
         self.pos[1] = (self.pos[1] + self.vel[1]) % HEIGHT
+        
+    def get_position(self):
+        return self.pos
+    
+    def get_radius(self):
+        return self.radius
+    
+    def collide(self, other_sprite):
+        return dist(self.get_position(), other_sprite.get_position()) <= (self.get_radius() + other_sprite.get_radius())
   
         
 # key handlers to control ship   
@@ -220,7 +245,7 @@ def click(pos):
         started = True
 
 def draw(canvas):
-    global time, started
+    global time, started, lives
     
     # animiate background
     time += 1
@@ -239,7 +264,6 @@ def draw(canvas):
 
     # draw ship and sprites
     my_ship.draw(canvas)
-#    a_rock.draw(canvas)
     a_missile.draw(canvas)
     
     # draw & update the rocks
@@ -247,8 +271,11 @@ def draw(canvas):
     
     # update ship and sprites
     my_ship.update()
-#    a_rock.update()
     a_missile.update()
+    
+    # collisions
+    if group_collide(rock_group, my_ship):
+        lives -= 1
 
     # draw splash screen if not started
     if not started:
@@ -287,4 +314,4 @@ timer = simplegui.create_timer(1000.0, rock_spawner)
 timer.start()
 frame.start()
 
-##CodeSkultor: https://py2.codeskulptor.org/#user49_3M1R25X5f9_2.py
+#CodeSkulptor: https://py2.codeskulptor.org/#user49_3M1R25X5f9_7.py
