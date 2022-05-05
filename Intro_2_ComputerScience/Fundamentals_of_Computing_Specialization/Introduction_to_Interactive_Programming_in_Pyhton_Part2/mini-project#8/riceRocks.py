@@ -10,6 +10,7 @@ score = 0
 lives = 3
 time = 0
 started = False
+speed = 1000.0
 
 class ImageInfo:
     def __init__(self, center, size, radius = 0, lifespan = None, animated = False):
@@ -302,6 +303,8 @@ def draw(canvas):
         
     score += group_group_collide(rock_group, missile_group)
     
+    
+    
     if lives == 0:
         started = False
         soundtrack.pause()
@@ -319,14 +322,28 @@ def draw(canvas):
 
 # timer handler that spawns a rock    
 def rock_spawner():
-    global rock_group
+    global rock_group, num_rocks, speed, timer
+    num_rocks = 12
     rock_pos = [random.randrange(0, WIDTH), random.randrange(0, HEIGHT)]
     rock_vel = [random.random() * .6 - .3, random.random() * .6 - .3]
     rock_avel = random.random() * .2 - .1
     a_rock = Sprite(rock_pos, rock_vel, 0, rock_avel, asteroid_image, asteroid_info)
-    
+    # increase game difficulty
+    if score > 10:
+        num_rocks = 20
+        timer.stop()
+        speed = 500.0
+        timer = simplegui.create_timer(speed, rock_spawner)
+        timer.start()
+    elif score > 30:
+        num_rocks = 30
+        timer.stop()
+        speed = 100.0
+        timer = simplegui.create_timer(speed, rock_spawner)
+        timer.start()
+        
     if started: 
-        if len(rock_group) < 12:	#limit the number of rocks to 12
+        if len(rock_group) < num_rocks:	#limit the number of rocks to 12
             if dist(rock_pos, my_ship.get_position()) > a_rock.get_radius() + my_ship.get_radius () + 10: # Avoid rocks spawning near the ship
                 rock_group.add(a_rock)
             
@@ -346,10 +363,10 @@ frame.set_keydown_handler(keydown)
 frame.set_mouseclick_handler(click)
 frame.set_draw_handler(draw)
 
-timer = simplegui.create_timer(1000.0, rock_spawner)
+timer = simplegui.create_timer(speed, rock_spawner)
 
 # get things rolling
 timer.start()
 frame.start()
 
-#CodeSkulptor: https://py2.codeskulptor.org/#user49_3M1R25X5f9_15.py
+#CodeSkulptor: https://py2.codeskulptor.org/#user49_3M1R25X5f9_17.py
