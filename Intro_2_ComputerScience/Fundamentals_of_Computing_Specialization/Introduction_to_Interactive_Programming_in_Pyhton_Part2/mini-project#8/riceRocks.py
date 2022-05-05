@@ -253,16 +253,23 @@ def keyup(key):
         
 # mouseclick handlers that reset UI and conditions whether splash image is drawn
 def click(pos):
-    global started
+    global started, score, lives
     center = [WIDTH / 2, HEIGHT / 2]
     size = splash_info.get_size()
     inwidth = (center[0] - size[0] / 2) < pos[0] < (center[0] + size[0] / 2)
     inheight = (center[1] - size[1] / 2) < pos[1] < (center[1] + size[1] / 2)
     if (not started) and inwidth and inheight:
         started = True
+        score = 0
+        lives = 3
+        ship_thrust_sound.rewind()
+        explosion_sound.rewind()
+        missile_sound.rewind()
+        soundtrack.rewind()
+        soundtrack.play()
 
 def draw(canvas):
-    global time, started, lives, score
+    global time, started, lives, score, rock_group, missile_group, my_ship
     
     # animiate background
     time += 1
@@ -281,7 +288,6 @@ def draw(canvas):
 
     # draw ship and sprites
     my_ship.draw(canvas)
-#    a_missile.draw(canvas)
     
     # draw & update the rocks and missiles
     process_sprite_group(rock_group, canvas)
@@ -289,13 +295,21 @@ def draw(canvas):
     
     # update ship and sprites
     my_ship.update()
-#    a_missile.update()
     
     # collisions
     if group_collide(rock_group, my_ship):
         lives -= 1
         
     score += group_group_collide(rock_group, missile_group)
+    
+    if lives == 0:
+        started = False
+        soundtrack.pause()
+        soundtrack.rewind()
+        my_ship = Ship([WIDTH / 2, HEIGHT / 2], [0, 0], 0, ship_image, ship_info)
+        rock_group = set([])
+        missile_group = set([])
+        explosion_group = set([])
 
     # draw splash screen if not started
     if not started:
@@ -310,8 +324,11 @@ def rock_spawner():
     rock_vel = [random.random() * .6 - .3, random.random() * .6 - .3]
     rock_avel = random.random() * .2 - .1
     a_rock = Sprite(rock_pos, rock_vel, 0, rock_avel, asteroid_image, asteroid_info)
-    if len(rock_group) < 12:	#limit the number of rocks to 12
-        rock_group.add(a_rock)
+    
+    if started: 
+        if len(rock_group) < 12:	#limit the number of rocks to 12
+            if dist(rock_pos, my_ship.get_position()) > a_rock.get_radius() + my_ship.get_radius () + 10: # Avoid rocks spawning near the ship
+                rock_group.add(a_rock)
             
 # initialize stuff
 frame = simplegui.create_frame("Asteroids", WIDTH, HEIGHT)
@@ -335,4 +352,4 @@ timer = simplegui.create_timer(1000.0, rock_spawner)
 timer.start()
 frame.start()
 
-#CodeSkultor = https://py2.codeskulptor.org/#user49_3M1R25X5f9_13.py
+#CodeSkulptor: https://py2.codeskulptor.org/#user49_3M1R25X5f9_15.py
