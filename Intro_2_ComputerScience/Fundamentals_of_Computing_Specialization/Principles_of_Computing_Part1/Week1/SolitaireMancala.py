@@ -52,7 +52,13 @@ class SolitaireMancala:
         """
         Check whether a given move is legal
         """
-        return True
+        if house_num == 0:
+            return False
+        else:
+            if self.get_num_seeds(house_num) == house_num:
+                return True
+            else:            
+                return False
 
     
     def apply_move(self, house_num):
@@ -98,7 +104,9 @@ def test_mancala():
     print "Testing get_num_seeds - Computed:", my_game.get_num_seeds(1), "Expected:", config1[1]
     print "Testing get_num_seeds - Computed:", my_game.get_num_seeds(3), "Expected:", config1[3]
     print "Testing get_num_seeds - Computed:", my_game.get_num_seeds(5), "Expected:", config1[5]
-#    print "Testing is_game_won - Computed:", my_game.is_game_won(), "Expected:", False
+    print "Testing is_legal_move - Computed:", my_game.is_legal_move(0), "Expected:", False
+    print "Testing is_legal_move - Computed:", my_game.is_legal_move(5), "Expected:", True
+    print "Testing is_legal_move - Computed:", my_game.is_legal_move(4), "Expected:", False
 
     # add more tests here
     
@@ -108,3 +116,4 @@ test_mancala()
 # Import GUI code once you feel your code is correct
 # import poc_mancala_gui
 # poc_mancala_gui.run_gui(SolitaireMancala())
+# CodeSkulptor: https://py2.codeskulptor.org/#user49_dLnQtCKS0v_3.py
