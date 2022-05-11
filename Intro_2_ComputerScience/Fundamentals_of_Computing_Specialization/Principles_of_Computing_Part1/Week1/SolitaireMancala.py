@@ -78,7 +78,18 @@ class SolitaireMancala:
         Note that using a longer legal move would make smaller illegal
         If no legal move, return house zero
         """
-        return 0
+        shortest_house = ''
+        legal_move = False
+        for house in range(1, len(self.board)):
+            if self.is_legal_move(house):
+                legal_move = True
+                if house < shortest_house:
+                    shortest_house = house
+                    
+        if not legal_move:
+            return 0
+        else:
+            return shortest_house
     
     def plan_moves(self):
         """
@@ -112,13 +123,13 @@ def test_mancala():
     print "Testing is_legal_move - Computed:", my_game.is_legal_move(4), "Expected:", False
     my_game.apply_move(5)
     print "Testing apply_move - Computed:", str(my_game), "Expected:", str([0,0,4,2,2,1,1])
+    print "Testing choose_move - Computed:", my_game.choose_move(), "Expected:", str(1)
 
-    # add more tests here
     
 test_mancala()
 
 
 # Import GUI code once you feel your code is correct
-# import poc_mancala_gui
-# poc_mancala_gui.run_gui(SolitaireMancala())
-# CodeSkulptor = https://py2.codeskulptor.org/#user49_dLnQtCKS0v_4.py
+#import poc_mancala_gui
+#poc_mancala_gui.run_gui(SolitaireMancala())
+# CodeSkulptor: https://py2.codeskulptor.org/#user49_dLnQtCKS0v_5.py
