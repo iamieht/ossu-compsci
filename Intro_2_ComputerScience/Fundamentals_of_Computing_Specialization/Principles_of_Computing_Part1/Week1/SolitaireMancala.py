@@ -16,7 +16,7 @@ class SolitaireMancala:
         """
         Create Mancala game with empty store and no houses
         """
-        self.board = [0]
+        self._board = [0]
     
     def set_board(self, configuration):
         """
@@ -24,14 +24,14 @@ class SolitaireMancala:
         house zero corresponds to the store and is on right
         houses are number in ascending order from right to left
         """
-        self.board = list(configuration)
+        self._board = list(configuration)
         
     
     def __str__(self):
         """
         Return string representation for Mancala board
         """
-        board2 = list(self.board)
+        board2 = list(self._board)
         board2.reverse()
         return str(board2)
     
@@ -39,14 +39,14 @@ class SolitaireMancala:
         """
         Return the number of seeds in given house on board
         """
-        return self.board[house_num]
+        return self._board[house_num]
                                    
 
     def is_game_won(self):
         """
         Check to see if all houses but house zero are empty
         """
-        for house in range(1, len(self.board)):
+        for house in range(1, len(self._board)):
             if self.get_num_seeds(house) != 0:
                 return False
         
@@ -72,8 +72,8 @@ class SolitaireMancala:
         """
         if self.is_legal_move(house_num):
             for house in range(0, house_num):
-                self.board[house] += 1
-                self.board[house_num] -= 1
+                self._board[house] += 1
+                self._board[house_num] -= 1
 
     def choose_move(self):
         """
@@ -82,18 +82,11 @@ class SolitaireMancala:
         Note that using a longer legal move would make smaller illegal
         If no legal move, return house zero
         """
-        shortest_house = ''
-        legal_move = False
-        for house in range(1, len(self.board)):
+        for house in range(1, len(self._board)):
             if self.is_legal_move(house):
-                legal_move = True
-                if house < shortest_house:
-                    shortest_house = house
-                    
-        if not legal_move:
-            return 0
-        else:
-            return shortest_house
+                return house
+        
+        return 0
     
     def plan_moves(self):
         """
@@ -102,7 +95,17 @@ class SolitaireMancala:
         when given a choice of legal moves
         Not used in GUI version, only for machine testing
         """
-        return []
+        new_board = SolitaireMancala()
+        new_board.set_board(self._board)
+        move_list = []
+        next_move =  new_board.choose_move()
+        while next_move != 0:
+            new_board.apply_move(next_move)
+            move_list.append(next_move)
+            next_move = new_board.choose_move()
+        return move_list
+            
+        
  
 
 # Create tests to check the correctness of your code
@@ -129,12 +132,17 @@ def test_mancala():
     print "Testing apply_move - Computed:", str(my_game), "Expected:", str([0,0,4,2,2,1,1])
     print "Testing choose_move - Computed:", my_game.choose_move(), "Expected:", str(1)
     print "Testing is_game_won - Computed:", my_game.is_game_won(), "Expected:", False
+    
+    config2 = [0, 0, 1, 1, 3, 5, 0]
+    my_game2 = SolitaireMancala()
+    my_game2.set_board(config2)
+    print my_game2.plan_moves()
 
     
-test_mancala()
+#test_mancala()
 
 
 # Import GUI code once you feel your code is correct
-# import poc_mancala_gui
-# poc_mancala_gui.run_gui(SolitaireMancala())
-# CodeSkulptor: https://py2.codeskulptor.org/#user49_dLnQtCKS0v_7.py
+#import poc_mancala_gui
+#poc_mancala_gui.run_gui(SolitaireMancala())
+# CodeSkulptor: https://py2.codeskulptor.org/#user49_dLnQtCKS0v_11.py
