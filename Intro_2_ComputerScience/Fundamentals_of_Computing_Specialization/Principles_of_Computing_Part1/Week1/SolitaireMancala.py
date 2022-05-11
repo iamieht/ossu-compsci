@@ -46,6 +46,10 @@ class SolitaireMancala:
         """
         Check to see if all houses but house zero are empty
         """
+        for house in range(1, len(self.board)):
+            if self.get_num_seeds(house) != 0:
+                return False
+        
         return True
     
     def is_legal_move(self, house_num):
@@ -124,12 +128,13 @@ def test_mancala():
     my_game.apply_move(5)
     print "Testing apply_move - Computed:", str(my_game), "Expected:", str([0,0,4,2,2,1,1])
     print "Testing choose_move - Computed:", my_game.choose_move(), "Expected:", str(1)
+    print "Testing is_game_won - Computed:", my_game.is_game_won(), "Expected:", False
 
     
 test_mancala()
 
 
 # Import GUI code once you feel your code is correct
-#import poc_mancala_gui
-#poc_mancala_gui.run_gui(SolitaireMancala())
-# CodeSkulptor: https://py2.codeskulptor.org/#user49_dLnQtCKS0v_5.py
+# import poc_mancala_gui
+# poc_mancala_gui.run_gui(SolitaireMancala())
+# CodeSkulptor: https://py2.codeskulptor.org/#user49_dLnQtCKS0v_7.py
