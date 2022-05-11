@@ -66,7 +66,10 @@ class SolitaireMancala:
         Move all of the stones from house to lower/left houses
         Last seed must be played in the store (house zero)
         """
-        pass
+        if self.is_legal_move(house_num):
+            for house in range(0, house_num):
+                self.board[house] += 1
+                self.board[house_num] -= 1
 
     def choose_move(self):
         """
@@ -107,6 +110,8 @@ def test_mancala():
     print "Testing is_legal_move - Computed:", my_game.is_legal_move(0), "Expected:", False
     print "Testing is_legal_move - Computed:", my_game.is_legal_move(5), "Expected:", True
     print "Testing is_legal_move - Computed:", my_game.is_legal_move(4), "Expected:", False
+    my_game.apply_move(5)
+    print "Testing apply_move - Computed:", str(my_game), "Expected:", str([0,0,4,2,2,1,1])
 
     # add more tests here
     
@@ -116,4 +121,4 @@ test_mancala()
 # Import GUI code once you feel your code is correct
 # import poc_mancala_gui
 # poc_mancala_gui.run_gui(SolitaireMancala())
-# CodeSkulptor: https://py2.codeskulptor.org/#user49_dLnQtCKS0v_3.py
+# CodeSkulptor = https://py2.codeskulptor.org/#user49_dLnQtCKS0v_4.py
