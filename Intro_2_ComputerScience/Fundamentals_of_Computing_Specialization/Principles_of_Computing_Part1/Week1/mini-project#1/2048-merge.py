@@ -8,14 +8,15 @@ def zeros_end(aList):
     Returns a new list.
     """
     newList = []
-    zeros = []
+    zeros = 0
     for element in aList:
         if element == 0:
-            zeros.append(element)
+            zeros += 1
         else:
             newList.append(element)
             
-    return newList + zeros
+    newList.extend(zeros*[0])
+    return newList
 
 def sublist(aList, num):
     """
@@ -47,16 +48,18 @@ def merge(line):
 
 
 print "Test Cases zeros_end"
-test_list = [2, 0, 2, 2]
-print zeros_end(test_list)
 print zeros_end([2, 0, 2, 4])
 print zeros_end([0, 0, 2, 2])
 print zeros_end([2, 2, 0, 0])
 print zeros_end([2, 2, 2, 2, 2])
 print zeros_end([8, 16, 16, 8])
-
+print "=========================="
 print "Test sublist"
 print sublist([2, 0, 2, 4], 2)
+print sublist([0, 0, 2, 2], 2)
+print sublist([2, 2, 0, 0], 2)
+print sublist([2, 2, 2, 2, 2], 2)
+print sublist([8, 16, 16, 8], 2)
 #print ""
 #print "Test Cases merge"
 #print merge([2, 0, 2, 2])
@@ -66,4 +69,4 @@ print sublist([2, 0, 2, 4], 2)
 #print merge([2, 2, 2, 2, 2])
 #print merge([8, 16, 16, 8])
 
-#CodeSkulptor: https://py2.codeskulptor.org/#user49_zcnxRetw1j_0.py
+#CodeSkulptor: https://py2.codeskulptor.org/#user49_zcnxRetw1j_1.py
