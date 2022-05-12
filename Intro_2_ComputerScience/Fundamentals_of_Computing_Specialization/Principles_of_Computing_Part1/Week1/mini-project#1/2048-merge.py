@@ -16,18 +16,37 @@ def zeros_end(aList):
             newList.append(element)
             
     return newList + zeros
+
+def sublist(aList, num):
+    """
+    Function that creates a sublist group by number of elements
+    num: Int
+    """
+    aList2 = list()
+    for i in range(0, len(aList), num):
+        aList2.append(aList[i:i+num])
+    
+    return aList2
         
 
 def merge(line):
     """
     Function that merges a single row or column in 2048.
     """
-    # replace with your code
-    return []
+    pass
+    
+#    for idx in range(0,len(new_line)-1,2):
+#        if new_line[idx] == new_line[idx+1]:
+#            new_line2.append(new_line[idx]+new_line[idx+1])
+#        else:
+#            new_line2.append(new_line[idx])
+#            
+#    return new_line2
 
 
 
-# Test Cases
+
+print "Test Cases zeros_end"
 test_list = [2, 0, 2, 2]
 print zeros_end(test_list)
 print zeros_end([2, 0, 2, 4])
@@ -35,3 +54,16 @@ print zeros_end([0, 0, 2, 2])
 print zeros_end([2, 2, 0, 0])
 print zeros_end([2, 2, 2, 2, 2])
 print zeros_end([8, 16, 16, 8])
+
+print "Test sublist"
+print sublist([2, 0, 2, 4], 2)
+#print ""
+#print "Test Cases merge"
+#print merge([2, 0, 2, 2])
+#print merge([2, 0, 2, 4])
+#print merge([0, 0, 2, 2])
+#print merge([2, 2, 0, 0])
+#print merge([2, 2, 2, 2, 2])
+#print merge([8, 16, 16, 8])
+
+#CodeSkulptor: https://py2.codeskulptor.org/#user49_zcnxRetw1j_0.py
