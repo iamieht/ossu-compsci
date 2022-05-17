@@ -6,7 +6,7 @@ Goal: Move as many seeds from given houses into the store
 In GUI, you make ask computer AI to make move or click to attempt a legal 
 move
 """
-
+import poc_mancala_testsuite_v1 as poc_mancala_testsuite
 
 class SolitaireMancala:
     """
@@ -107,3 +107,5 @@ houses
             move_list.append(next_move)
             next_move = new_board.choose_move()
         return move_list
+    
+poc_mancala_testsuite.run_suite(SolitaireMancala)
