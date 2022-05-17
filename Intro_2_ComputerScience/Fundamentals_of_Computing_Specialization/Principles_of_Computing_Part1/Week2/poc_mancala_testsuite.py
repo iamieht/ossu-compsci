@@ -20,7 +20,7 @@ def run_suite(game_class):
     # test the initial configuration of the board using the str method
     suite.run_test(str(game), str([0]), "Test #0: init")
 
-    # check the str and get_num_seeds methods
+    # check the str, get_num_seeds and is_legal_move methods
     config1 = [0, 0, 1, 1, 3, 5, 0]    
     game.set_board(config1)   
     suite.run_test(str(game), str([0, 5, 3, 1, 1, 0, 0]), "Test #1a: str")
@@ -30,6 +30,10 @@ def run_suite(game_class):
     suite.run_test(game.is_legal_move(0), False, "Test #2a: is_legal_move")
     suite.run_test(game.is_legal_move(5), True, "Test #2b: is_legal_move")
     suite.run_test(game.is_legal_move(4), False, "Test #2c: is_legal_move")
+    
+    # check apply move
+    game.apply_move(5)
+    suite.run_test(str(game), str([0,0,4,2,2,1,1]), "Test #3: apply_move")
     
     # report number of tests and failures
     suite.report_results()
