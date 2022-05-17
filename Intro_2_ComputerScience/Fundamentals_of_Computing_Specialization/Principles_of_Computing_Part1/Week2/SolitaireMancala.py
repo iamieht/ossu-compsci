@@ -108,4 +108,6 @@ houses
             next_move = new_board.choose_move()
         return move_list
     
+# import test suite and run
+import user49_L5krk6muKU_12 as poc_mancala_testsuite
 poc_mancala_testsuite.run_suite(SolitaireMancala)
