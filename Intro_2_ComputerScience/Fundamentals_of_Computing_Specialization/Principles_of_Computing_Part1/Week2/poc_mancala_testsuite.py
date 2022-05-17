@@ -36,5 +36,8 @@ def run_suite(game_class):
     suite.run_test(str(game), str([0,0,4,2,2,1,1]), "Test #3: apply_move")
     suite.run_test(game.choose_move(), game.choose_move(), "Test #4: choose_move")
     
+    # Check is_game_won
+    suite.run_test(game.is_game_won(), False, "Test #5: is_game_won")
+    
     # report number of tests and failures
     suite.report_results()
