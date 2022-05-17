@@ -26,7 +26,10 @@ def run_suite(game_class):
     suite.run_test(str(game), str([0, 5, 3, 1, 1, 0, 0]), "Test #1a: str")
     suite.run_test(game.get_num_seeds(1), config1[1], "Test #1b: get_num_seeds")
     suite.run_test(game.get_num_seeds(3), config1[3], "Test #1c: get_num_seeds")
-    suite.run_test(game.get_num_seeds(5), config1[5], "Test #1d: get_num_seeds")    
+    suite.run_test(game.get_num_seeds(5), config1[5], "Test #1d: get_num_seeds")
+    suite.run_test(game.is_legal_move(0), False, "Test #2a: is_legal_move")
+    suite.run_test(game.is_legal_move(5), True, "Test #2b: is_legal_move")
+    suite.run_test(game.is_legal_move(4), False, "Test #2c: is_legal_move")
     
     # report number of tests and failures
     suite.report_results()
