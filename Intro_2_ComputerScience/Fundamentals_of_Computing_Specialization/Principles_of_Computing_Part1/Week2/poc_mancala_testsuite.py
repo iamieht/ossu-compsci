@@ -39,5 +39,11 @@ def run_suite(game_class):
     # Check is_game_won
     suite.run_test(game.is_game_won(), False, "Test #5: is_game_won")
     
+    # Check plan moves
+    config2 = [0, 0, 1, 1, 3, 5, 0]
+    game2 = game_class()
+    game2.set_board(config2)
+    suite.run_test(str(game2.plan_moves()), str([5, 1, 2, 1, 4, 1, 3, 1, 2, 1]), "Test #6: plan_moves")
+    
     # report number of tests and failures
     suite.report_results()
