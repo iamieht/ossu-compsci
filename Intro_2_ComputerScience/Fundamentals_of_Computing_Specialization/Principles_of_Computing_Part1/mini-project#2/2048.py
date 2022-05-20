@@ -72,6 +72,8 @@ class TwentyFortyEight:
         initial tiles.
         """
         self._board = [[0 for col in range(self._width)] for row in range(self._height)]
+        self.new_tile()
+        self.new_tile()
 
     def __str__(self):
         """
@@ -148,4 +150,4 @@ import user49_rrK9yzg2Bo_6 as poc_2048_testsuite
 poc_2048_testsuite.run_suite(TwentyFortyEight(4,4))
 
 
-#CodeSkulptor: https://py2.codeskulptor.org/#user49_hUyrMJxgZ0_9.py
+#CodeSkulptor: https://py2.codeskulptor.org/#user49_hUyrMJxgZ0_10.py
