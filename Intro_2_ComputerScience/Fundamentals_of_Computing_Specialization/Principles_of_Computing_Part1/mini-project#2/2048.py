@@ -2,7 +2,7 @@
 Clone of 2048 game.
 """
 
-#import poc_2048_gui
+import poc_2048_gui
 import random
 
 
@@ -63,6 +63,10 @@ class TwentyFortyEight:
         self._height = grid_height
         self._width = grid_width
         self._board = []
+        self._indices = {UP: [(0,col)for col in range(self._width)] ,
+                   DOWN: [(self._height-1,col)for col in range(self._width)],
+                   LEFT: [(row,0)for row in range(self._height)],
+                   RIGHT: [(row,self._width-1)for row in range(self._height)]}
         self.reset()
         
 
@@ -89,23 +93,51 @@ class TwentyFortyEight:
         """
         Get the height of the board.
         """
-        # replace with your code
-        return 0
+        return self._height
 
     def get_grid_width(self):
         """
         Get the width of the board.
         """
-        # replace with your code
-        return 0
+        return self._width
+    
+    def cut(self , start , direction , steps):
+        """
+        makes a list and return it
+        """
+        the_list = []
+        for step in range(steps):
+            row = start[0] + step * direction[0]
+            col = start[1] + step * direction[1]
+            the_list.append(self._board[row][col])
+        return the_list
+    
+    def modify(self , start , direction , steps , merged):
+        """
+        modifies the grid
+        """
+        for step in range(steps):
+            row = start[0] + step * direction[0]
+            col = start[1] + step * direction[1]
+            self._board[row][col] = merged[step]
 
     def move(self, direction):
         """
         Move all tiles in the given direction and add
         a new tile if any tiles moved.
         """
-        # replace with your code
-        pass
+        steps = self._height
+        changed = False
+        if direction == RIGHT or direction == LEFT:
+            steps = self._width
+        for index in self._indices[direction]:
+            cutted = self.cut(index,OFFSETS[direction], steps)
+            merged = merge(cutted)
+            if cutted != merged :
+                changed = True
+            self.modify(index,OFFSETS[direction], steps , merged)
+        if changed:
+            self.new_tile()
 
     def new_tile(self):
         """
@@ -113,41 +145,41 @@ class TwentyFortyEight:
         square.  The tile should be 2 90% of the time and
         4 10% of the time.
         """
-        # replace with your code
-        pass
+        number = random.random()          
+        col = 0
+        row = 0
+        not_found = True
+        
+        while not_found:
+            col = random.randrange(self._width)
+            row = random.randrange(self._height)
+            if self._board[row][col] == 0:
+                not_found = False
+        
+        if number >= 0.9:
+            self._board[row][col] = 4
+        else:
+            self._board[row][col] = 2
 
     def set_tile(self, row, col, value):
         """
         Set the tile at position row, col to have the given value.
         """
-        number = random.random()          
-        col = 0
-        row = 0
-        
-        while True:
-            col = random.randrange(self._width)
-            row = random.randrange(self._height)
-            if self._board[row][col] == 0 :
-                break
-        
-        if number >= 0.9:
-            self._board[row][col] = 4
-        else :
-            self._board[row][col] = 2
+        self._board[row][col] = value
 
     def get_tile(self, row, col):
         """
         Return the value of the tile at position row, col.
         """
-        # replace with your code
-        return 0
+        return self._board[row][col]
 
 
-#poc_2048_gui.run_gui(TwentyFortyEight(4, 4))
+poc_2048_gui.run_gui(TwentyFortyEight(4, 4))
 
 #Test Suite
-import user49_rrK9yzg2Bo_9 as poc_2048_testsuite
-poc_2048_testsuite.run_suite(TwentyFortyEight(4,4))
+#import user49_rrK9yzg2Bo_9 as poc_2048_testsuite
+#poc_2048_testsuite.run_suite(TwentyFortyEight(4,4))
 
 
-#CodeSkulptor: https://py2.codeskulptor.org/#user49_hUyrMJxgZ0_10.py
+
+#CodeSkulptor: https://py2.codeskulptor.org/#user49_hxMrpktg4aIs5Sk.py

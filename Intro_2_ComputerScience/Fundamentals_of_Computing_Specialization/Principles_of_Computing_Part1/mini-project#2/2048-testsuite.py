@@ -26,4 +26,4 @@ def run_suite(game_class):
     suite.report_results()
 
 
-#CodeSkulptor: https://py2.codeskulptor.org/#user49_rrK9yzg2Bo_9.py
+#CodeSkulptor: https://py2.codeskulptor.org/#user49_hUyrMJxgZ0_19.py
