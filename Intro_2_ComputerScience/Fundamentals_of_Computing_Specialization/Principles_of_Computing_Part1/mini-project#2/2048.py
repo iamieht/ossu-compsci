@@ -3,6 +3,7 @@ Clone of 2048 game.
 """
 
 #import poc_2048_gui
+import random
 
 
 # Directions, DO NOT MODIFY
@@ -117,8 +118,20 @@ class TwentyFortyEight:
         """
         Set the tile at position row, col to have the given value.
         """
-        # replace with your code
-        pass
+        number = random.random()          
+        col = 0
+        row = 0
+        
+        while True:
+            col = random.randrange(self._width)
+            row = random.randrange(self._height)
+            if self._board[row][col] == 0 :
+                break
+        
+        if number >= 0.9:
+            self._board[row][col] = 4
+        else :
+            self._board[row][col] = 2
 
     def get_tile(self, row, col):
         """
@@ -135,4 +148,4 @@ import user49_rrK9yzg2Bo_6 as poc_2048_testsuite
 poc_2048_testsuite.run_suite(TwentyFortyEight(4,4))
 
 
-#CodeSkulptor: https://py2.codeskulptor.org/#user49_hUyrMJxgZ0_7.py
+#CodeSkulptor: https://py2.codeskulptor.org/#user49_hUyrMJxgZ0_9.py
