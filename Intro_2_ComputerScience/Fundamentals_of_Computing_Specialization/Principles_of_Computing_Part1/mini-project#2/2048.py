@@ -94,4 +94,6 @@ class TwentyFortyEight:
         return 0
 
 
-poc_2048_gui.run_gui(TwentyFortyEight(4, 4))
+#poc_2048_gui.run_gui(TwentyFortyEight(4, 4))
+import user49_rrK9yzg2Bo_2 as poc_2048_testsuite
+poc_2048_testsuite.run_suite(TwentyFortyEight(4,4))
