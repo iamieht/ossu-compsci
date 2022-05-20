@@ -2,7 +2,8 @@
 Clone of 2048 game.
 """
 
-import poc_2048_gui
+#import poc_2048_gui
+
 
 # Directions, DO NOT MODIFY
 UP = 1
@@ -55,23 +56,31 @@ class TwentyFortyEight:
     """
 
     def __init__(self, grid_height, grid_width):
-        # replace with your code
-        pass
+        """
+        constructor
+        """
+        self._height = grid_height
+        self._width = grid_width
+        self._board = []
+        self.reset()
+        
 
     def reset(self):
         """
         Reset the game so the grid is empty except for two
         initial tiles.
         """
-        # replace with your code
-        pass
+        self._board = [[0 for col in range(self._width)] for row in range(self._height)]
 
     def __str__(self):
         """
         Return a string representation of the grid for debugging.
         """
-        # replace with your code
-        return ""
+        str_board = ""
+        for index in range(len(self._board)):
+            str_board += str(self._board[index]) + "\n"
+        
+        return str_board
 
     def get_grid_height(self):
         """
@@ -120,7 +129,10 @@ class TwentyFortyEight:
 
 
 #poc_2048_gui.run_gui(TwentyFortyEight(4, 4))
-import user49_rrK9yzg2Bo_2 as poc_2048_testsuite
+
+#Test Suite
+import user49_rrK9yzg2Bo_6 as poc_2048_testsuite
 poc_2048_testsuite.run_suite(TwentyFortyEight(4,4))
 
-#CodeSkulptor: https://py2.codeskulptor.org/#user49_hUyrMJxgZ0_3.py
+
+#CodeSkulptor: https://py2.codeskulptor.org/#user49_hUyrMJxgZ0_7.py
