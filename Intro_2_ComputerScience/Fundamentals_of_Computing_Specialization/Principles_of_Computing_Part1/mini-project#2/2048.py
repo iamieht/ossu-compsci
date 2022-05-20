@@ -17,12 +17,37 @@ OFFSETS = {UP: (1, 0),
            LEFT: (0, 1),
            RIGHT: (0, -1)}
 
+def zeros_end(alist):
+    """
+    Function that moves non-zero elements of a list to
+    the beginning and zeros at the end.
+    Returns a new list.
+    """
+    new_list = []
+    zeros = 0
+    for element in alist:
+        if element == 0:
+            zeros += 1
+        else:
+            new_list.append(element)
+            
+    new_list.extend(zeros*[0])
+    return new_list
+
 def merge(line):
     """
     Helper function that merges a single row or column in 2048
     """
-    # replace with your code from the previous mini-project
-    return []
+    new_line = zeros_end(line)
+    result = []
+    
+    for idx in range(len(new_line)-1):
+        if new_line[idx] == new_line[idx+1]:
+            new_line[idx] *= 2
+            new_line[idx+1] = 0
+            
+    result = zeros_end(new_line)
+    return result
 
 class TwentyFortyEight:
     """
@@ -97,3 +122,5 @@ class TwentyFortyEight:
 #poc_2048_gui.run_gui(TwentyFortyEight(4, 4))
 import user49_rrK9yzg2Bo_2 as poc_2048_testsuite
 poc_2048_testsuite.run_suite(TwentyFortyEight(4,4))
+
+#CodeSkulptor: https://py2.codeskulptor.org/#user49_hUyrMJxgZ0_3.py
