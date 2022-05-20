@@ -23,3 +23,4 @@ def run_suite(game_class):
     # report number of tests and failures
     suite.report_results()
 
+#CodeSkulptor: https://py2.codeskulptor.org/#user49_rrK9yzg2Bo_6.py
