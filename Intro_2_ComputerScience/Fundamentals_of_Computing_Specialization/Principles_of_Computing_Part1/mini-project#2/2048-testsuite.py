@@ -18,7 +18,8 @@ def run_suite(game_class):
     # add tests using suite.run_test(....) here
 
     # test the initial configuration of the board using the str method
-#    suite.run_test(str(game), str([0]), "Test #0: init")
+    suite.run_test(str(game_class), str(game_class), "Test #0: init")
     
     # report number of tests and failures
     suite.report_results()
+
