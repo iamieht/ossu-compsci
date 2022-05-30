@@ -67,7 +67,7 @@ def gen_all_sequences(outcomes, length):
     outcomes of given length
     """    
     ans = set([()])
-    for dummy_idx in range(length + 1):
+    for dummy_idx in range(length):
         temp = set()
         for seq in ans:
             for item in outcomes:
@@ -144,7 +144,7 @@ def find_closest(target, eqns):
     """
     closest = [float('inf')]
     for eqn in eqns:
-        if abs(target - eqn[-1]) < abs(closest[-1]):
+        if abs(target - eqn[-1]) < abs(target - closest[-1]):
             closest = eqn
     return closest
 
