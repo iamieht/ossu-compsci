@@ -53,9 +53,11 @@ def expected_value(held_dice, num_die_sides, num_free_dice):
     sequences = gen_all_sequences(tuple(dices), num_free_dice)
     final_sequence = [held_dice + item for item in sequences]
     expected_values = []
+    
     for sequence in final_sequence:
         new_vals = [sequence.count(_num) * _num for _num in range(1,num_die_sides+1)]
         expected_values.append(max(new_vals))
+    
     return sum(expected_values) / float(len(expected_values))
 
 
@@ -67,17 +69,30 @@ def gen_all_holds(hand):
 
     Returns a set of tuples, where each tuple is dice to hold
     """
-    holds = set([])
-
-    if len(hand) == 0:
-        return holds
-    else:
-        temp_hands = hand[:-1]
-        for each_tuple in gen_all_holds(temp_hands):
-            holds.add(each_tuple)
-            holds.add((each_tuple + (hand[-1],)))
-
-    return holds
+    def gen_all_hold_recur(hand,_len):
+        """
+        The recursion function to 
+        generate all possible choices of dice from hand to hold.
+        hand: full yahtzee hand
+        _len: length of list hand 
+        
+        Returns a set of tuples, where each tuple is dice to hold
+        """
+        if _len == 0:
+            return set([()])
+        
+        _drop = hand[0]
+        _hand = gen_all_hold_recur(hand[1:],_len-1)
+        _set = set([()])
+        for _item in _hand:
+            _store = list(_item)
+            _store.append(_drop)
+            _set.add(tuple(sorted(_store)))
+        _set.update(_hand)
+        return _set
+            
+    
+    return gen_all_hold_recur(hand,len(hand))
 
 
 
@@ -92,18 +107,16 @@ def strategy(hand, num_die_sides):
     Returns a tuple where the first element is the expected score and
     the second element is a tuple of the dice to hold
     """
-    holds_dict = {}
-    possible_hold = gen_all_holds(hand)
+    _rolls = gen_all_holds(hand)
+    _max = 0
+    _set_hold = ()
 
-    for each_hold in possible_hold:
-        exp_val_for_each_hold = expected_value(each_hold, num_die_sides, len(hand) - len(each_hold))
-        holds_dict[each_hold] = holds_dict.get(each_hold, exp_val_for_each_hold)
-
-    temp_list = []
-    for key, value in holds_dict.items():
-        temp_list.append((value, key))
-
-    return sorted(temp_list, reverse = True)[0]
+    for _item in _rolls:
+        _value = expected_value(_item,num_die_sides,len(hand)-len(_item))
+        if _max < _value:
+            _max = _value
+            _set_hold = _item
+    return (_max,_set_hold)
 
 
 def run_example():
@@ -116,15 +129,8 @@ def run_example():
     print "Best strategy for hand", hand, "is to hold", hold, "with expected score", hand_score
     
     
-run_example()
+#run_example()
 
 
 #import poc_holds_testsuite
 #poc_holds_testsuite.run_suite(gen_all_holds)
-                                       
-    
-    
-    
-
-
-
