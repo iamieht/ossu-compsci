@@ -49,7 +49,14 @@ def expected_value(held_dice, num_die_sides, num_free_dice):
 
     Returns a floating point expected value
     """
-    return 0.0
+    dices = [x for x in range(1, num_die_sides+1)]
+    sequences = gen_all_sequences(tuple(dices), num_free_dice)
+    final_sequence = [held_dice + item for item in sequences]
+    expected_values = []
+    for sequence in final_sequence:
+        new_vals = [sequence.count(_num) * _num for _num in range(1,num_die_sides+1)]
+        expected_values.append(max(new_vals))
+    return sum(expected_values) / float(len(expected_values))
 
 
 def gen_all_holds(hand):
