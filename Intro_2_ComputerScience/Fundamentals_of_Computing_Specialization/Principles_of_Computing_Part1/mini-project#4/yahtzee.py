@@ -92,7 +92,18 @@ def strategy(hand, num_die_sides):
     Returns a tuple where the first element is the expected score and
     the second element is a tuple of the dice to hold
     """
-    return (0.0, ())
+    holds_dict = {}
+    possible_hold = gen_all_holds(hand)
+
+    for each_hold in possible_hold:
+        exp_val_for_each_hold = expected_value(each_hold, num_die_sides, len(hand) - len(each_hold))
+        holds_dict[each_hold] = holds_dict.get(each_hold, exp_val_for_each_hold)
+
+    temp_list = []
+    for key, value in holds_dict.items():
+        temp_list.append((value, key))
+
+    return sorted(temp_list, reverse = True)[0]
 
 
 def run_example():
