@@ -67,7 +67,17 @@ def gen_all_holds(hand):
 
     Returns a set of tuples, where each tuple is dice to hold
     """
-    return set([()])
+    holds = set([])
+
+    if len(hand) == 0:
+        return holds
+    else:
+        temp_hands = hand[:-1]
+        for each_tuple in gen_all_holds(temp_hands):
+            holds.add(each_tuple)
+            holds.add((each_tuple + (hand[-1],)))
+
+    return holds
 
 
 
