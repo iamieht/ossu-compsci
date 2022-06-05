@@ -34,7 +34,8 @@ def score(hand):
 
     Returns an integer score 
     """
-    return 0
+    scores = [(hand.count(_score) * _score) for _score in range(1, 7)]
+    return max(scores)
 
 
 def expected_value(held_dice, num_die_sides, num_free_dice):
