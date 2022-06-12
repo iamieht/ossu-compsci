@@ -108,7 +108,14 @@ class ClickerState:
 
         Should do nothing if you cannot afford the item
         """
-        pass
+        if self._current_cookies >= cost:
+            self._current_cookies -= cost
+            self._item = item_name
+            self._item_price = cost
+            self._cps += additional_cps
+            self._history.append((self._time, self._item, 
+                                  self._item_price, 
+                                  self._total_cookies))
    
     
 def simulate_clicker(build_info, duration, strategy):
