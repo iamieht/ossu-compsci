@@ -209,7 +209,19 @@ def strategy_best(cookies, cps, history, time_left, build_info):
     """
     The best strategy that you are able to implement.
     """
-    return None
+    items = item_price_dict(build_info)
+    items_in_time = {}
+    for item, price in items.items():
+        if price <= cookies + cps * time_left:
+            items_in_time[item] = price
+    best_increase = {}
+    for item, price in items_in_time.items():
+        best_increase[item] = build_info.get_cps(item) / price
+    if best_increase:
+        best_choice = max(zip(best_increase.values(), best_increase.keys()))
+        return best_choice[1]
+    else:
+        return None
         
 def run_strategy(strategy_name, time, strategy):
     """
