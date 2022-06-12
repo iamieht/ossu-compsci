@@ -86,7 +86,10 @@ class ClickerState:
 
         Should return a float with no fractional part
         """
-        return 0.0
+        if cookies > 0 and cookies > self._current_cookies:
+            return math.ceil((cookies - self._current_cookies)/self._cps)
+        else:
+            return 0.0
     
     def wait(self, time):
         """
