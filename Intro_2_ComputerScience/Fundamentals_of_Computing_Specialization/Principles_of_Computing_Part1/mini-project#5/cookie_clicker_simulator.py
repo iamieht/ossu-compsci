@@ -33,7 +33,12 @@ class ClickerState:
         """
         Return human readable state
         """
-        return "not yet implemented"
+        _string = "Time: " + str(self._time)\
+                + "\nCurrent cookies: " + str(self._current_cookies)\
+                + "\nCPS: " + str(self._cps)\
+                + "\nTotal cookies: " + str(self._total_cookies)
+
+        return _string
         
     def get_cookies(self):
         """
