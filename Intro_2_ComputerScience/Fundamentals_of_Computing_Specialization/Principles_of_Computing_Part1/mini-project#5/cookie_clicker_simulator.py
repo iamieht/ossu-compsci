@@ -3,6 +3,7 @@ Cookie Clicker Simulator
 """
 
 import simpleplot
+import math
 
 # Used to increase the timeout, if necessary
 import codeskulptor
@@ -126,7 +127,26 @@ def simulate_clicker(build_info, duration, strategy):
     """
 
     # Replace with your code
-    return ClickerState()
+    build_object = build_info.clone()
+    simulation = ClickerState()
+    while simulation.get_time() <= duration:
+        time_left = duration - simulation.get_time()
+        next_item_to_buy = strategy(simulation.get_cookies(),
+                                    simulation.get_cps(),
+                                    simulation.get_history(),
+                                    time_left, build_object)
+        if next_item_to_buy == None:
+            break
+        elif simulation.time_until(build_object.get_cost(next_item_to_buy)) > time_left:
+            break
+        else:
+            simulation.wait(simulation.time_until(build_object.get_cost(next_item_to_buy)))
+            simulation.buy_item(next_item_to_buy,
+                                build_object.get_cost(next_item_to_buy),
+                                build_object.get_cps(next_item_to_buy))
+            build_object.update_item(next_item_to_buy)
+    simulation.wait(time_left)
+    return simulation
 
 
 def strategy_cursor_broken(cookies, cps, history, time_left, build_info):
