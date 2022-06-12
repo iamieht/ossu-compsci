@@ -47,7 +47,7 @@ class ClickerState:
         
         Should return a float
         """
-        return 0.0
+        return self._current_cookies
     
     def get_cps(self):
         """
@@ -55,7 +55,7 @@ class ClickerState:
 
         Should return a float
         """
-        return 0.0
+        return self._cps
     
     def get_time(self):
         """
@@ -63,7 +63,7 @@ class ClickerState:
 
         Should return a float
         """
-        return 0.0
+        return self._time
     
     def get_history(self):
         """
@@ -77,7 +77,7 @@ class ClickerState:
         Should return a copy of any internal data structures,
         so that they will not be modified outside of the class.
         """
-        return []
+        return self._history
 
     def time_until(self, cookies):
         """
