@@ -126,7 +126,6 @@ def simulate_clicker(build_info, duration, strategy):
     object corresponding to the final state of the game.
     """
 
-    # Replace with your code
     build_object = build_info.clone()
     simulation = ClickerState()
     while simulation.get_time() <= duration:
@@ -148,6 +147,15 @@ def simulate_clicker(build_info, duration, strategy):
     simulation.wait(time_left)
     return simulation
 
+def item_price_dict(build_info):
+    """
+    Returns dictionary with item name and it's price.
+    """
+    all_items = build_info.build_items()
+    costs = map(build_info.get_cost, all_items)
+    items_costs_tuple = zip(all_items, costs)
+    items_costs_dict = dict((item_name, cost) for (item_name, cost) in items_costs_tuple)
+    return items_costs_dict
 
 def strategy_cursor_broken(cookies, cps, history, time_left, build_info):
     """
@@ -175,7 +183,12 @@ def strategy_cheap(cookies, cps, history, time_left, build_info):
     """
     Always buy the cheapest item you can afford in the time left.
     """
-    return None
+    items = item_price_dict(build_info)
+    minimum = min(zip(items.values(), items.keys()))
+    if minimum[0] > time_left:
+        return None
+    else:
+        return minimum[1]
 
 def strategy_expensive(cookies, cps, history, time_left, build_info):
     """
