@@ -194,7 +194,16 @@ def strategy_expensive(cookies, cps, history, time_left, build_info):
     """
     Always buy the most expensive item you can afford in the time left.
     """
-    return None
+    items = item_price_dict(build_info)
+    items_in_time = {}
+    for item, price in items.items():
+        if price <= cookies + cps * time_left:
+            items_in_time[item] = price
+    if items_in_time:
+        maximum = max(zip(items_in_time.values(), items_in_time.keys()))
+        return maximum[1]
+    else:
+        return None
 
 def strategy_best(cookies, cps, history, time_left, build_info):
     """
