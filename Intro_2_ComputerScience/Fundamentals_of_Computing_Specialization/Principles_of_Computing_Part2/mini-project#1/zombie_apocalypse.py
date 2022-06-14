@@ -103,7 +103,36 @@ class Apocalypse(poc_grid.Grid):
         Distance at member of entity_list is zero
         Shortest paths avoid obstacles and use four-way distances
         """
-        return
+        visited = poc_grid.Grid(self._grid_height, self._grid_width)
+
+        distance_field = [[self._grid_height * self._grid_width
+                           for dummy_col in range(self._grid_width)]
+                          for dummy_row in range(self._grid_height)]
+
+        for obstacle in self.obstacles():
+            visited.set_full(obstacle[0], obstacle[1])
+
+        boundary = poc_queue.Queue()
+        list_type = self._zombie_list if entity_type == ZOMBIE else self._human_list
+
+        for cells in list_type:
+            boundary.enqueue(cells)
+            visited.set_full(cells[0], cells[1])
+            distance_field[cells[0]][cells[1]] = 0
+
+        while boundary:
+            current_cell = boundary.dequeue()
+            neighbor_cells = visited.four_neighbors(
+                current_cell[0], current_cell[1])
+
+            for cell in neighbor_cells:
+                if visited.is_empty(cell[0], cell[1]):
+                    visited.set_full(cell[0], cell[1])
+                    boundary.enqueue(cell)
+                    distance_field[cell[0]][cell[1]
+                                            ] = distance_field[current_cell[0]][current_cell[1]] + 1
+
+        return distance_field
     
     def move_humans(self, zombie_distance_field):
         """
