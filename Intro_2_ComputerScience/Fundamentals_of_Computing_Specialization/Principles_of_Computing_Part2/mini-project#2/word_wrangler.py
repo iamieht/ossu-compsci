@@ -65,7 +65,28 @@ def merge(list1, list2):
 
     This function can be iterative.
     """   
-    return []
+    merge_result = []
+    idx = 0
+
+    while list1 != [] and list2 != []:
+        if list1[idx] < list2[idx]:
+            merge_result.append(list1[idx])
+            list1 = list1[idx + 1:]
+        else:
+            merge_result.append(list2[idx])
+            list2 = list2[idx + 1:]
+
+    # there might be some elements remaining in left or right subarrays
+
+    while list1 != []:
+        merge_result.append(list1[idx])
+        list1 = list1[idx + 1:]
+
+    while list2 != []:
+        merge_result.append(list2[idx])
+        list2 = list2[idx + 1:]
+
+    return merge_result
                 
 def merge_sort(list1):
     """
@@ -75,7 +96,20 @@ def merge_sort(list1):
 
     This function should be recursive.
     """
-    return []
+    # base case: a list of non-zero elements are sorted by definition
+    if len(list1) <= 1:
+        return list1
+
+    # split the arrays by the middle and assign the halfs to left and right respectively
+    middle = len(list1) // 2
+    left, right = list1[:middle], list1[middle:]
+
+    # recursively sort both the halves
+    left = merge_sort(left)
+    right = merge_sort(right)
+
+    # merge the now sorted sub-arrays
+    return merge(left, right)
 
 # Function to generate all strings for the word wrangler game
 
