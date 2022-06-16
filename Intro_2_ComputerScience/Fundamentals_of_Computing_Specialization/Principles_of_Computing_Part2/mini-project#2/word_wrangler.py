@@ -20,7 +20,15 @@ def remove_duplicates(list1):
 
     This function can be iterative.
     """
-    return []
+    duplicate_free_list = []
+    none_list = [None]*1000
+
+    for index in range(len(list1)):
+        if none_list[list1[index]] == None:
+            duplicate_free_list.append(list1[index])
+            none_list[list1[index]] = list1[index]
+
+    return duplicate_free_list
 
 def intersect(list1, list2):
     """
@@ -31,7 +39,20 @@ def intersect(list1, list2):
 
     This function can be iterative.
     """
-    return []
+    joined_list = []
+    none_list = [None]*1000
+
+    list1 = remove_duplicates(list1)
+    list2 = remove_duplicates(list2)
+
+    for index in range(len(list1)):
+        none_list[list1[index]] = list1[index]
+
+    for index in range(len(list2)):
+        if none_list[list2[index]] == list2[index]:
+            joined_list.append(list2[index])
+
+    return joined_list
 
 # Functions to perform merge sort
 
