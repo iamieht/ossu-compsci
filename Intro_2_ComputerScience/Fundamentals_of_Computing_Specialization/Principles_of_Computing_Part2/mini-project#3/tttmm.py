@@ -22,7 +22,30 @@ def mm_move(board, player):
     of the given board and the second element is the desired move as a
     tuple, (row, col).
     """
-    return 0, (-1, -1)
+    # base case : if game is over, return the score and (-1, -1) as move
+    if board.check_win() is not None:
+        return (SCORES[board.check_win()], (-1, -1))
+
+    # worst possible result for recursion. player loses.
+    game_result = (-1, (-1, -1))
+
+    for move in board.get_empty_squares():
+        # clone the board so that recurrent calls for mm_move will not modify the original board.
+        copiedboard = board.clone()
+        # apply a move with the current player
+        copiedboard.move(move[0], move[1], player)
+
+        score, _ = mm_move(copiedboard, provided.switch_player(player))
+
+        # best possible choice found already
+        if score * SCORES[player] == 1:
+            return score, move
+        elif score * SCORES[player] > game_result[0]:
+            game_result = (score, move)
+        elif game_result[0] == -1:
+            game_result = (game_result[0], move)
+
+    return game_result[0] * SCORES[player], game_result[1]
 
 def move_wrapper(board, player, trials):
     """
