@@ -32,17 +32,16 @@
 
 ## Core Programming
 
-| Course                                                                                                                                                  | Status | Repository |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ---------- |
-| [How to Code - Simple Data](https://www.edx.org/course/how-code-simple-data-ubcx-htc1x)                                                                 | ---    |
-| [How to Code - Complex Data](https://www.edx.org/course/how-code-complex-data-ubcx-htc2x)                                                               | ---    |
-| [Programming Languages, Part A](https://www.coursera.org/learn/programming-languages)                                                                   | ---    |
-| [Programming Languages, Part B](https://www.coursera.org/learn/programming-languages-part-b)                                                            | ---    |
-| [Programming Languages, Part C](https://www.coursera.org/learn/programming-languages-part-c)                                                            | ---    |
-| [Introduction to Computational Thinking and Data Science](https://www.edx.org/course/6-00-2x-introduction-to-computational-thinking-and-data-science-3) | ---    |
-| [Design Patterns](https://www.coursera.org/learn/design-patterns)                                                                                       | ---    |
-| [Object-Oriented Design](https://www.coursera.org/learn/object-oriented-design)                                                                         | ---    |
-| [Software Architecture](https://www.coursera.org/learn/software-architecture)                                                                           | ---    |
+| Course                                                                                       | Status | Repository |
+| -------------------------------------------------------------------------------------------- | ------ | ---------- |
+| [How to Code - Simple Data](https://www.edx.org/course/how-code-simple-data-ubcx-htc1x)      | ---    |
+| [How to Code - Complex Data](https://www.edx.org/course/how-code-complex-data-ubcx-htc2x)    | ---    |
+| [Programming Languages, Part A](https://www.coursera.org/learn/programming-languages)        | ---    |
+| [Programming Languages, Part B](https://www.coursera.org/learn/programming-languages-part-b) | ---    |
+| [Programming Languages, Part C](https://www.coursera.org/learn/programming-languages-part-c) | ---    |
+| [Object-Oriented Design](https://www.coursera.org/learn/object-oriented-design)              | ---    |
+| [Design Patterns](https://www.coursera.org/learn/design-patterns)                            | ---    |
+| [Software Architecture](https://www.coursera.org/learn/software-architecture)                | ---    |
 
 ## Core Math
 
