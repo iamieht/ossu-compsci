@@ -10,6 +10,8 @@
 | [How to Learn Math: For Students](https://www.edx.org/course/how-to-learn-math-for-students-2) | Completed |
 | [Learning How to Learn](https://www.coursera.org/learn/learning-how-to-learn)                  | Completed |
 
+# Intro CS
+
 ## Introduction to Programming
 
 | Course                                                                                                                                        | Status    | Repository                                                                                                                           |
@@ -21,39 +23,27 @@
 
 ## Introduction to Computer Science
 
-| Course                                                                                                                                                                                | Status      | Repository                                                                                                                                                                         |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Crash Course Computer Science](https://www.youtube.com/playlist?list=PLH2l6uzC4UEW0s7-KewFLBC1D0l6XRfye)                                                                             | Completed   |
-| [Introduction to Computer Science and Programming using Python](https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x-10)                                             | Completed   | [Repo](https://github.com/iamieht/ossu-compsci/tree/main/Intro_2_ComputerScience/MITx6.00.1x)                                                                                      |
-| [An Introduction to Interactive Programming in Python (Part 1) (Fundamentals of Computing)](https://www.coursera.org/learn/interactive-python-1?specialization=computer-fundamentals) | Completed   | [Repo](https://github.com/iamieht/ossu-compsci/tree/main/Intro_2_ComputerScience/Fundamentals_of_Computing_Specialization/Introduction_to_Interactive_Programming_in_Python_Part1) |
-| [An Introduction to Interactive Programming in Python (Part 2) (Fundamentals of Computing)](https://www.coursera.org/learn/interactive-python-2?specialization=computer-fundamentals) | Completed | [Repo](https://github.com/iamieht/ossu-compsci/tree/main/Intro_2_ComputerScience/Fundamentals_of_Computing_Specialization/Introduction_to_Interactive_Programming_in_Pyhton_Part2) |
-| [Principles of Computing (Part 1) (Fundamentals of Computing)](https://www.coursera.org/learn/principles-of-computing-1?specialization=computer-fundamentals)                         | Completed        |
-| [Principles of Computing (Part 2) (Fundamentals of Computing)](https://www.coursera.org/learn/principles-of-computing-2?specialization=computer-fundamentals)                         | Completed         |
-| [Algorithmic Thinking (Part 1) ((Fundamentals of Computing))](https://www.coursera.org/learn/algorithmic-thinking-1?specialization=computer-fundamentals)                             | ---         |
-| [Algorithmic Thinking (Part 2) (Fundamentals of Computing)](https://www.coursera.org/learn/algorithmic-thinking-2?specialization=computer-fundamentals)                               | ---         |
+| Course                                                                                                                                    | Status    | Repository                                                                                    |
+| ----------------------------------------------------------------------------------------------------------------------------------------- | --------- | --------------------------------------------------------------------------------------------- |
+| [Crash Course Computer Science](https://www.youtube.com/playlist?list=PLH2l6uzC4UEW0s7-KewFLBC1D0l6XRfye)                                 | Completed |
+| [Introduction to Computer Science and Programming using Python](https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x-10) | Completed | [Repo](https://github.com/iamieht/ossu-compsci/tree/main/Intro_2_ComputerScience/MITx6.00.1x) |
 
 # Core Computer Science
 
 ## Core Programming
 
-| Course                                                                                                                                                  | Status | Repository |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ---------- |
-| [How to Code - Simple Data](https://www.edx.org/course/how-code-simple-data-ubcx-htc1x)                                                                 | ---    |
-| [How to Code - Complex Data](https://www.edx.org/course/how-code-complex-data-ubcx-htc2x)                                                               | ---    |
-| [Software Construction - Data Abstraction](https://www.edx.org/course/software-construction-data-abstraction-ubcx-softconst1x)                          | ---    |
-| [Software Construction - Object-Oriented Design](https://www.edx.org/course/software-construction-object-oriented-ubcx-softconst2x)                     | ---    |
-| [Programming Languages, Part A](https://www.coursera.org/learn/programming-languages)                                                                   | ---    |
-| [Programming Languages, Part B](https://www.coursera.org/learn/programming-languages-part-b)                                                            | ---    |
-| [Programming Languages, Part C](https://www.coursera.org/learn/programming-languages-part-c)                                                            | ---    |
-| [Introduction to Computational Thinking and Data Science](https://www.edx.org/course/6-00-2x-introduction-to-computational-thinking-and-data-science-3) | ---    |
-| [Design Patterns](https://www.coursera.org/learn/design-patterns)                                                                                       | ---    |
-| [Object-Oriented Design](https://www.coursera.org/learn/object-oriented-design)                                                                         | ---    |
-| [Software Architecture](https://www.coursera.org/learn/software-architecture)                                                                           | ---    |
-| [CS50’s Web Programming with Python and JavaScript](https://cs50.harvard.edu/web/2020/)                                                                 | ---    |
+| Course                                                                                       | Status | Repository |
+| -------------------------------------------------------------------------------------------- | ------ | ---------- |
+| [How to Code - Simple Data](https://www.edx.org/course/how-code-simple-data-ubcx-htc1x)      | ---    |
+| [How to Code - Complex Data](https://www.edx.org/course/how-code-complex-data-ubcx-htc2x)    | ---    |
+| [Programming Languages, Part A](https://www.coursera.org/learn/programming-languages)        | ---    |
+| [Programming Languages, Part B](https://www.coursera.org/learn/programming-languages-part-b) | ---    |
+| [Programming Languages, Part C](https://www.coursera.org/learn/programming-languages-part-c) | ---    |
+| [Object-Oriented Design](https://www.coursera.org/learn/object-oriented-design)              | ---    |
+| [Design Patterns](https://www.coursera.org/learn/design-patterns)                            | ---    |
+| [Software Architecture](https://www.coursera.org/learn/software-architecture)                | ---    |
 
 ## Core Math
-
-### Calculus
 
 | Course                                                                                                                                                                                                                                                                        | Status | Repository |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ---------- |
@@ -61,38 +51,13 @@
 | [Calculus 1A: Differentiation](https://www.edx.org/course/calculus-1a-differentiation)                                                                                                                                                                                        | ---    |
 | [Calculus 1B: Integration](https://www.edx.org/course/calculus-1b-integration)                                                                                                                                                                                                | ---    |
 | [Calculus 1C: Coordinate Systems & Infinite Series](https://www.edx.org/course/calculus-1c-coordinate-systems-infinite-series)                                                                                                                                                | ---    |
+| [Mathematics for Computer Science](https://openlearninglibrary.mit.edu/courses/course-v1:OCW+6.042J+2T2019/about)                                                                                                                                                             | ---    |
 
-### Linear Algebra
+## CS Tools
 
-| Course                                                                                                            | Status | Repository |
-| ----------------------------------------------------------------------------------------------------------------- | ------ | ---------- |
-| [Essence of Linear Algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab)             | ---    |
-| [Linear Algebra - Foundations to Frontiers](https://www.edx.org/course/linear-algebra-foundations-to-frontiers-0) | ---    |
-
-### Set Theory
-
-| Course                                                                                 | Status | Repository |
-| -------------------------------------------------------------------------------------- | ------ | ---------- |
-| [Set Theory](https://www.youtube.com/playlist?list=PL5KkMZvBpo5AH_5GpxMiryJT6Dkj32H6N) | ---    |
-
-### Logic
-
-| Course                                                                     | Status | Repository |
-| -------------------------------------------------------------------------- | ------ | ---------- |
-| [Introduction to Logic](https://www.coursera.org/learn/logic-introduction) | ---    |
-
-### Probability
-
-| Course                                                                                                                                | Status | Repository |
-| ------------------------------------------------------------------------------------------------------------------------------------- | ------ | ---------- |
-| [Probability](https://www.edx.org/course/introduction-to-probability-0)                                                               | ---    |
-| [Introduction to Probability - The Science of Uncertainty](https://www.edx.org/course/introduction-probability-science-mitx-6-041x-2) | ---    |
-
-### Discrete Mathematics
-
-| Course                                                                                                            | Status | Repository |
-| ----------------------------------------------------------------------------------------------------------------- | ------ | ---------- |
-| [Mathematics for Computer Science](https://openlearninglibrary.mit.edu/courses/course-v1:OCW+6.042J+2T2019/about) | ---    |
+| Course                                                                      | Status | Repository |
+| --------------------------------------------------------------------------- | ------ | ---------- |
+| [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/) | ---    |
 
 ## Core Systems
 
@@ -116,6 +81,16 @@
 | [Greedy Algorithms, Minimum Spanning Trees, and Dynamic Programming (Algorithms Specialization)](https://www.coursera.org/learn/algorithms-greedy?specialization=algorithms)             | ---    |
 | [Shortest Paths Revisited, NP-Complete Problems and What To Do About Them ((Algorithms Specialization))](https://www.coursera.org/learn/algorithms-npcomplete?specialization=algorithms) | ---    |
 
+## Core Security
+
+| Course                                                                                                                                               | Status | Repository |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ---------- |
+| [Information Security: Context and Introduction](https://www.coursera.org/learn/information-security-data)                                           | ---    |
+| [Principles of Secure Coding](https://www.coursera.org/learn/secure-coding-principles)                                                               | ---    |
+| [Identifying Security Vulnerabilities](https://www.coursera.org/learn/identifying-security-vulnerabilities)                                          | ---    |
+| [Identifying Security Vulnerabilities in C/C++Programming](https://www.coursera.org/learn/identifying-security-vulnerabilities-c-programming)        | ---    |
+| [Exploiting and Securing Vulnerabilities in Java Applications](https://www.coursera.org/learn/exploiting-securing-vulnerabilities-java-applications) | ---    |
+
 ## Core Applications
 
 | Course                                                                                                            | Status | Repository |
@@ -128,35 +103,15 @@
 | [Software Engineering: Introduction](https://www.edx.org/course/software-engineering-introduction-ubcx-softeng1x) | ---    |
 | [Cryptography I](https://www.coursera.org/course/crypto)                                                          | ---    |
 
-## Core Security, Tools & Ethics
+## Core Ethics
 
-| Course                                                                                                                                               | Status | Repository |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ---------- |
-| [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/)                                                                          | ---    |
-| [Information Security: Context and Introduction](https://www.coursera.org/learn/information-security-data)                                           | ---    |
-| [Principles of Secure Coding](https://www.coursera.org/learn/secure-coding-principles)                                                               | ---    |
-| [Identifying Security Vulnerabilities](https://www.coursera.org/learn/identifying-security-vulnerabilities)                                          | ---    |
-| [Identifying Security Vulnerabilities in C/C++Programming](https://www.coursera.org/learn/identifying-security-vulnerabilities-c-programming)        | ---    |
-| [Exploiting and Securing Vulnerabilities in Java Applications](https://www.coursera.org/learn/exploiting-securing-vulnerabilities-java-applications) | ---    |
-| [Ethics, Technology and Engineering](https://www.coursera.org/learn/ethics-technology-engineering)                                                   | ---    |
-| [Intellectual Property Law in Digital Age](https://www.coursera.org/learn/intellectual-property-law-in-digital-age)                                  | ---    |
-| [Data Privacy Fundamentals](https://www.coursera.org/learn/northeastern-data-privacy)                                                                | ---    |
+| Course                                                                                                              | Status | Repository |
+| ------------------------------------------------------------------------------------------------------------------- | ------ | ---------- |
+| [Ethics, Technology and Engineering](https://www.coursera.org/learn/ethics-technology-engineering)                  | ---    |
+| [Intellectual Property Law in Digital Age](https://www.coursera.org/learn/intellectual-property-law-in-digital-age) | ---    |
+| [Data Privacy Fundamentals](https://www.coursera.org/learn/northeastern-data-privacy)                               | ---    |
 
 # Advanced Computer Science
-
-## Advanced Math
-
-| Course                                                                                                                                                                 | Status | Repository |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ---------- |
-| [Essence of Linear Algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab)                                                                  | --     |
-| [College Algebra and Problem Solving](https://www.edx.org/course/college-algebra-problem-solving-asux-mat117x)                                                         | --     |
-| [Linear Algebra](https://ocw.mit.edu/courses/mathematics/18-06sc-linear-algebra-fall-2011/)                                                                            | --     |
-| [Introduction to Numerical Analysis](https://www.coursera.org/learn/intro-to-numerical-analysis)                                                                       | --     |
-| [Mathematical Thinking in Computer Science (Introduction to Discrete Mathematics)](https://www.coursera.org/learn/what-is-a-proof?specialization=discrete-mathematics) | ---    |
-| [Combinatorics and Probability (Introduction to Discrete Mathematics)](https://www.coursera.org/learn/combinatorics?specialization=discrete-mathematics)               | ---    |
-| [Introduction to Graph Theory (Introduction to Discrete Mathematics)](https://www.coursera.org/learn/graphs?specialization=discrete-mathematics)                       | ---    |
-| [Number Theory and Cryptography (Introduction to Discrete Mathematics)](https://www.coursera.org/learn/number-theory-cryptography?specialization=discrete-mathematics) | ---    |
-| [Intro to Statistics](https://www.udacity.com/course/intro-to-statistics--st101)                                                                                       | ---    |
 
 ## Advanced Programming
 
@@ -194,10 +149,37 @@
 | [Introduction to Formal Concept Analysis](https://www.coursera.org/learn/formal-concept-analysis)                                                                 | ---    |
 | [Game Theory](https://www.coursera.org/learn/game-theory-1)                                                                                                       | ---    |
 
-## Advanced Security
+## Advanced Information Security
 
-| Course                                                                                                      | Status | Repository |
-| ----------------------------------------------------------------------------------------------------------- | ------ | ---------- |
-| [Information Security: Context and Introduction](https://www.coursera.org/learn/information-security-data)  | ---    |
-| [Principles of Secure Coding](https://www.coursera.org/learn/secure-coding-principles)                      | ---    |
-| [Identifying Security Vulnerabilities](https://www.coursera.org/learn/identifying-security-vulnerabilities) | ---    | Completed  |
+| Course                                                                                                                                                                   | Status | Repository |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------ | ---------- |
+| [Information Security: Context and Introduction](https://www.coursera.org/learn/information-security-data)                                                               | ---    |
+| [Principles of Secure Coding](https://www.coursera.org/learn/secure-coding-principles)                                                                                   | ---    |
+| [Identifying Security Vulnerabilities](https://www.coursera.org/learn/identifying-security-vulnerabilities)                                                              | ---    |            |
+| [Web Security Fundamentals](https://www.edx.org/course/web-security-fundamentals)                                                                                        | ---    |            |
+| [Security Governance & Compliance](https://www.coursera.org/learn/security-governance-compliance)                                                                        | ---    |            |
+| [Digital Forensics Concepts](https://www.coursera.org/learn/digital-forensics-concepts)                                                                                  | ---    |            |
+| [Secure Software Development: Requirements, Design, and Reuse](https://www.edx.org/course/secure-software-development-requirements-design-and-reuse)                     | ---    |            |
+| [Secure Software Development: Implementation](https://www.edx.org/course/secure-software-development-implementation)                                                     | ---    |            |
+| [Secure Software Development: Verification and More Specialized Topics](https://www.edx.org/course/secure-software-development-verification-and-more-specialized-topics) | ---    |            |
+
+## Advanced Math
+
+| Course                                                                                                                                                                 | Status | Repository |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ---------- |
+| [Essence of Linear Algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab)                                                                  | --     |
+| [Linear Algebra - Foundations to Frontiers](https://www.edx.org/course/linear-algebra-foundations-to-frontiers-0)                                                      | ---    |
+| [College Algebra and Problem Solving](https://www.edx.org/course/college-algebra-problem-solving-asux-mat117x)                                                         | --     |
+| [Linear Algebra](https://ocw.mit.edu/courses/mathematics/18-06sc-linear-algebra-fall-2011/)                                                                            | --     |
+| [Introduction to Numerical Methods](https://ocw.mit.edu/courses/mathematics/18-335j-introduction-to-numerical-methods-spring-2019/index.htm)                           | --     |
+| [Introduction to Numerical Analysis](https://www.coursera.org/learn/intro-to-numerical-analysis)                                                                       | --     |
+| [Mathematical Thinking in Computer Science (Introduction to Discrete Mathematics)](https://www.coursera.org/learn/what-is-a-proof?specialization=discrete-mathematics) | ---    |
+| [Combinatorics and Probability (Introduction to Discrete Mathematics)](https://www.coursera.org/learn/combinatorics?specialization=discrete-mathematics)               | ---    |
+| [Introduction to Graph Theory (Introduction to Discrete Mathematics)](https://www.coursera.org/learn/graphs?specialization=discrete-mathematics)                       | ---    |
+| [Number Theory and Cryptography (Introduction to Discrete Mathematics)](https://www.coursera.org/learn/number-theory-cryptography?specialization=discrete-mathematics) | ---    |
+| [Intro to Statistics](https://www.udacity.com/course/intro-to-statistics--st101)                                                                                       | ---    |
+| [Set Theory](https://www.youtube.com/playlist?list=PL5KkMZvBpo5AH_5GpxMiryJT6Dkj32H6N)                                                                                 | ---    |
+| [Introduction to Logic](https://www.coursera.org/learn/logic-introduction)                                                                                             | ---    |
+| [Introduction to Formal Logic](https://forallx.openlogicproject.org/)                                                                                                  | ---    |
+| [Probability](https://www.edx.org/course/introduction-to-probability-0)                                                                                                | ---    |
+| [Introduction to Probability - The Science of Uncertainty](https://www.edx.org/course/introduction-probability-science-mitx-6-041x-2)                                  | ---    |
