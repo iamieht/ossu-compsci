@@ -17,3 +17,29 @@
 (+ 2 12      (- 3       3))
 (+ 2 12      0)
 14
+
+;Strings
+"apple"
+(string-length "apple")
+(string-append "Ada" " " "Lovelace")
+(substring "Caribou" 2 4)
+
+;Images
+(require 2htdp/image)
+
+(circle 10 "solid" "red")
+(rectangle 30 60 "outline" "blue")
+
+(text "hello" 24 "orange")
+
+(above (circle 10 "solid" "red")
+       (circle 20 "solid" "yellow")
+       (circle 30 "solid" "green"))
+
+(beside (circle 10 "solid" "red")
+        (circle 20 "solid" "yellow")
+        (circle 30 "solid" "green"))
+
+(overlay (circle 10 "solid" "red")
+        (circle 20 "solid" "yellow")
+        (circle 30 "solid" "green"))
