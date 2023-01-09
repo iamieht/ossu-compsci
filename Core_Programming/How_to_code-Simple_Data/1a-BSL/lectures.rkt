@@ -47,3 +47,15 @@
 ;Constant definitions
 (define WIDTH 400)
 (define HEIGHT 600)
+
+;Booleans
+(> WIDTH HEIGHT)
+(<= WIDTH HEIGHT)
+
+(string=? "foo" "bar")
+
+(define I1 (rectangle 10 20 "solid" "red"))
+(define I2 (rectangle 20 10 "solid" "blue"))
+
+(< (image-width I1)
+   (image-width I2))
