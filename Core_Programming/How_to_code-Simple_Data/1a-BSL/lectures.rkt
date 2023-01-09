@@ -43,3 +43,7 @@
 (overlay (circle 10 "solid" "red")
         (circle 20 "solid" "yellow")
         (circle 30 "solid" "green"))
+
+;Constant definitions
+(define WIDTH 400)
+(define HEIGHT 600)
